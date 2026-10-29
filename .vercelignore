@@ -1,0 +1,6 @@
+uploads
+agent-tools
+.next
+node_modules
+data/*.tmp
+data/submissions.json

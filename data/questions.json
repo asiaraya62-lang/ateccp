@@ -1,0 +1,555 @@
+{
+  "updatedAt": null,
+  "items": [
+    {
+      "id": "s01",
+      "category": "인식",
+      "prompt": "나는 공정거래 자율준수가 우리 회사의 거래 원칙이라는 점을 알고 있다.",
+      "type": "scale",
+      "required": true,
+      "active": true,
+      "order": 1,
+      "hint": ""
+    },
+    {
+      "id": "s02",
+      "category": "인식",
+      "prompt": "나는 공정거래 법규를 어기면 회사와 개인 모두 책임을 질 수 있다는 점을 이해하고 있다.",
+      "type": "scale",
+      "required": true,
+      "active": true,
+      "order": 2,
+      "hint": ""
+    },
+    {
+      "id": "s03",
+      "category": "인식",
+      "prompt": "나는 공정거래 판단이 어려우면 혼자 결정하지 않고 감사팀 또는 CP 담당자에게 묻는다.",
+      "type": "scale",
+      "required": true,
+      "active": true,
+      "order": 3,
+      "hint": ""
+    },
+    {
+      "id": "s04",
+      "category": "인식",
+      "prompt": "나는 CP 행동강령이나 준수정책이 공지되면 확인하고, 내 업무에 어떻게 적용되는지 파악한다.",
+      "type": "scale",
+      "required": true,
+      "active": true,
+      "order": 4,
+      "hint": ""
+    },
+    {
+      "id": "s05",
+      "category": "인식",
+      "prompt": "나는 계열사 임직원에게도 같은 공정거래 기준이 적용된다는 점을 알고 있다.",
+      "type": "scale",
+      "required": true,
+      "active": true,
+      "order": 5,
+      "hint": ""
+    },
+    {
+      "id": "s06",
+      "category": "인식",
+      "prompt": "나는 이번 기간의 공정거래 교육 일정 또는 이수 여부를 확인했다.",
+      "type": "scale",
+      "required": true,
+      "active": true,
+      "order": 6,
+      "hint": ""
+    },
+    {
+      "id": "s07",
+      "category": "담합",
+      "prompt": "나는 경쟁사 임직원과 가격, 납기, 물량, 시장 분할을 의논하지 않는다.",
+      "type": "scale",
+      "required": true,
+      "active": true,
+      "order": 7,
+      "hint": ""
+    },
+    {
+      "id": "s08",
+      "category": "담합",
+      "prompt": "나는 경쟁사와 입찰 참여 여부나 투찰 가격을 사전에 맞추지 않는다.",
+      "type": "scale",
+      "required": true,
+      "active": true,
+      "order": 8,
+      "hint": ""
+    },
+    {
+      "id": "s09",
+      "category": "담합",
+      "prompt": "나는 업계 모임, 전시회, 메신저에서 접한 경쟁 민감 정보를 영업 판단에 쓰지 않는다.",
+      "type": "scale",
+      "required": true,
+      "active": true,
+      "order": 9,
+      "hint": ""
+    },
+    {
+      "id": "s10",
+      "category": "담합",
+      "prompt": "나는 경쟁사로부터 받은 가격표, 견적, 수주 정보를 퍼뜨리지 않고 담당자에게 알린다.",
+      "type": "scale",
+      "required": true,
+      "active": true,
+      "order": 10,
+      "hint": ""
+    },
+    {
+      "id": "s11",
+      "category": "담합",
+      "prompt": "나는 대리점, 협력사, 계열사를 통해 경쟁사와 가격이나 거래를 조율하지 않는다.",
+      "type": "scale",
+      "required": true,
+      "active": true,
+      "order": 11,
+      "hint": ""
+    },
+    {
+      "id": "s12",
+      "category": "담합",
+      "prompt": "나는 관행이라는 이유로 경쟁사와 보조를 맞추자는 제안을 거절한다.",
+      "type": "scale",
+      "required": true,
+      "active": true,
+      "order": 12,
+      "hint": ""
+    },
+    {
+      "id": "s13",
+      "category": "담합",
+      "prompt": "나는 담합으로 의심되는 대화가 나오면 자리를 정리하고 그 사실을 기록으로 남긴다.",
+      "type": "scale",
+      "required": true,
+      "active": true,
+      "order": 13,
+      "hint": ""
+    },
+    {
+      "id": "s14",
+      "category": "담합",
+      "prompt": "나는 경쟁사에 있는 지인과 가격, 입찰, 고객 정보를 사적으로 주고받지 않는다.",
+      "type": "scale",
+      "required": true,
+      "active": true,
+      "order": 14,
+      "hint": ""
+    },
+    {
+      "id": "s15",
+      "category": "입찰",
+      "prompt": "나는 공공기관, 금융기관, 교통기관 입찰에서 예정가격이나 다른 회사의 투찰 정보를 알아내려 하지 않는다.",
+      "type": "scale",
+      "required": true,
+      "active": true,
+      "order": 15,
+      "hint": ""
+    },
+    {
+      "id": "s16",
+      "category": "입찰",
+      "prompt": "나는 낙찰을 나누거나 들러리로 참여해 달라는 요청을 하지도, 받아들이지도 않는다.",
+      "type": "scale",
+      "required": true,
+      "active": true,
+      "order": 16,
+      "hint": ""
+    },
+    {
+      "id": "s17",
+      "category": "입찰",
+      "prompt": "나는 입찰 서류의 실적, 인증, 가격, 사양을 확인된 사실대로 작성한다.",
+      "type": "scale",
+      "required": true,
+      "active": true,
+      "order": 17,
+      "hint": ""
+    },
+    {
+      "id": "s18",
+      "category": "입찰",
+      "prompt": "나는 발주처 담당자에게 평가에 영향을 줄 수 있는 금품, 향응, 편의를 제공하지 않는다.",
+      "type": "scale",
+      "required": true,
+      "active": true,
+      "order": 18,
+      "hint": ""
+    },
+    {
+      "id": "s19",
+      "category": "입찰",
+      "prompt": "나는 입찰 관련 회의와 견적 결정 과정을 나중에 설명할 수 있도록 남긴다.",
+      "type": "scale",
+      "required": true,
+      "active": true,
+      "order": 19,
+      "hint": ""
+    },
+    {
+      "id": "s20",
+      "category": "입찰",
+      "prompt": "나는 수의계약과 단가계약에서도 경쟁 입찰과 같은 공정거래 기준을 적용한다.",
+      "type": "scale",
+      "required": true,
+      "active": true,
+      "order": 20,
+      "hint": ""
+    },
+    {
+      "id": "s21",
+      "category": "하도급",
+      "prompt": "나는 수급사업자에게 정당한 사유 없이 대금 지급을 미루거나 지급 수단을 불리하게 바꾸지 않는다.",
+      "type": "scale",
+      "required": true,
+      "active": true,
+      "order": 21,
+      "hint": ""
+    },
+    {
+      "id": "s22",
+      "category": "하도급",
+      "prompt": "나는 계약 이후 납품대금을 부당하게 감액하지 않는다.",
+      "type": "scale",
+      "required": true,
+      "active": true,
+      "order": 22,
+      "hint": ""
+    },
+    {
+      "id": "s23",
+      "category": "하도급",
+      "prompt": "나는 정당한 사유 없이 발주를 취소하거나 물량을 갑자기 줄이지 않는다.",
+      "type": "scale",
+      "required": true,
+      "active": true,
+      "order": 23,
+      "hint": ""
+    },
+    {
+      "id": "s24",
+      "category": "하도급",
+      "prompt": "나는 기술자료를 받을 때 목적과 비밀유지 범위를 밝히고, 요구 근거 없이 받지 않는다.",
+      "type": "scale",
+      "required": true,
+      "active": true,
+      "order": 24,
+      "hint": ""
+    },
+    {
+      "id": "s25",
+      "category": "하도급",
+      "prompt": "나는 협력사의 도면, 소스, 노하우를 합의된 범위 밖에서 사용하지 않는다.",
+      "type": "scale",
+      "required": true,
+      "active": true,
+      "order": 25,
+      "hint": ""
+    },
+    {
+      "id": "s26",
+      "category": "하도급",
+      "prompt": "나는 협력사에게 우리 회사나 계열사 상품의 구입을 강요하지 않는다.",
+      "type": "scale",
+      "required": true,
+      "active": true,
+      "order": 26,
+      "hint": ""
+    },
+    {
+      "id": "s27",
+      "category": "하도급",
+      "prompt": "나는 부당한 위탁 취소, 반품, 검사 지연으로 협력사에 비용을 떠넘기지 않는다.",
+      "type": "scale",
+      "required": true,
+      "active": true,
+      "order": 27,
+      "hint": ""
+    },
+    {
+      "id": "s28",
+      "category": "하도급",
+      "prompt": "나는 하도급 계약서를 작업 시작 전에 교부하는 절차를 지킨다.",
+      "type": "scale",
+      "required": true,
+      "active": true,
+      "order": 28,
+      "hint": ""
+    },
+    {
+      "id": "s29",
+      "category": "계열거래",
+      "prompt": "나는 계열사 거래의 가격과 조건을 비계열 거래와 비교할 수 있게 남긴다.",
+      "type": "scale",
+      "required": true,
+      "active": true,
+      "order": 29,
+      "hint": ""
+    },
+    {
+      "id": "s30",
+      "category": "계열거래",
+      "prompt": "나는 계열사에만 유리하도록 일감을 몰아주거나 손실을 넘기는 조건을 제안하지 않는다.",
+      "type": "scale",
+      "required": true,
+      "active": true,
+      "order": 30,
+      "hint": ""
+    },
+    {
+      "id": "s31",
+      "category": "계열거래",
+      "prompt": "나는 계열사 제품이나 용역을 살 때 필요성, 가격, 품질을 검토한다.",
+      "type": "scale",
+      "required": true,
+      "active": true,
+      "order": 31,
+      "hint": ""
+    },
+    {
+      "id": "s32",
+      "category": "계열거래",
+      "prompt": "나는 그룹 내부 거래라는 이유로 계약, 검수, 대금 절차를 생략하지 않는다.",
+      "type": "scale",
+      "required": true,
+      "active": true,
+      "order": 32,
+      "hint": ""
+    },
+    {
+      "id": "s33",
+      "category": "계열거래",
+      "prompt": "나는 계열사 임직원과 입찰 정보 공유나 담합으로 이어질 수 있는 대화를 하지 않는다.",
+      "type": "scale",
+      "required": true,
+      "active": true,
+      "order": 33,
+      "hint": ""
+    },
+    {
+      "id": "s34",
+      "category": "거래상지위",
+      "prompt": "나는 유통, 유지보수, 대리점 거래에서 상대의 지위를 이용해 일방적인 조건을 요구하지 않는다.",
+      "type": "scale",
+      "required": true,
+      "active": true,
+      "order": 34,
+      "hint": ""
+    },
+    {
+      "id": "s35",
+      "category": "거래상지위",
+      "prompt": "나는 판매목표, 판촉비, 재고 부담을 사전에 합의하지 않고 상대에게 떠넘기지 않는다.",
+      "type": "scale",
+      "required": true,
+      "active": true,
+      "order": 35,
+      "hint": ""
+    },
+    {
+      "id": "s36",
+      "category": "거래상지위",
+      "prompt": "나는 거래 상대에게 특정인 채용이나 경쟁사와의 거래 거절을 부당하게 강요하지 않는다.",
+      "type": "scale",
+      "required": true,
+      "active": true,
+      "order": 36,
+      "hint": ""
+    },
+    {
+      "id": "s37",
+      "category": "거래상지위",
+      "prompt": "나는 정당한 사유 없이 거래를 거절하거나 가격과 물량을 차별하지 않는다.",
+      "type": "scale",
+      "required": true,
+      "active": true,
+      "order": 37,
+      "hint": ""
+    },
+    {
+      "id": "s38",
+      "category": "거래상지위",
+      "prompt": "나는 고객이나 발주처에게 리베이트, 과다 접대, 사례비로 거래를 유도하지 않는다.",
+      "type": "scale",
+      "required": true,
+      "active": true,
+      "order": 38,
+      "hint": ""
+    },
+    {
+      "id": "s39",
+      "category": "거래상지위",
+      "prompt": "나는 유지보수, 부품, 소모품 거래에 묶음 강요나 부당한 구속 조건을 넣지 않는다.",
+      "type": "scale",
+      "required": true,
+      "active": true,
+      "order": 39,
+      "hint": ""
+    },
+    {
+      "id": "s40",
+      "category": "거래상지위",
+      "prompt": "나는 거래 상대의 불만과 이의제기를 절차 없이 묵살하지 않는다.",
+      "type": "scale",
+      "required": true,
+      "active": true,
+      "order": 40,
+      "hint": ""
+    },
+    {
+      "id": "s41",
+      "category": "표시광고",
+      "prompt": "나는 제품 성능, 인증, 점유율, 납기, 호환성을 확인되지 않은 표현으로 알리지 않는다.",
+      "type": "scale",
+      "required": true,
+      "active": true,
+      "order": 41,
+      "hint": ""
+    },
+    {
+      "id": "s42",
+      "category": "표시광고",
+      "prompt": "나는 제안서, 카탈로그, 홈페이지의 비교 표현이 사실에 근거하는지 확인한다.",
+      "type": "scale",
+      "required": true,
+      "active": true,
+      "order": 42,
+      "hint": ""
+    },
+    {
+      "id": "s43",
+      "category": "표시광고",
+      "prompt": "나는 금융자동화, 교통단말기, 유통 솔루션의 사양을 축소하거나 과장하지 않는다.",
+      "type": "scale",
+      "required": true,
+      "active": true,
+      "order": 43,
+      "hint": ""
+    },
+    {
+      "id": "s44",
+      "category": "표시광고",
+      "prompt": "나는 다른 회사의 제안서, 소프트웨어, 도면을 권리 확인 없이 사용하지 않는다.",
+      "type": "scale",
+      "required": true,
+      "active": true,
+      "order": 44,
+      "hint": ""
+    },
+    {
+      "id": "s45",
+      "category": "표시광고",
+      "prompt": "나는 허위 실적이나 가공한 시험 결과를 영업 자료에 넣지 않는다.",
+      "type": "scale",
+      "required": true,
+      "active": true,
+      "order": 45,
+      "hint": ""
+    },
+    {
+      "id": "s46",
+      "category": "신고기록",
+      "prompt": "나는 공정거래 위반이 의심되면 감사팀 채널로 알릴 수 있다고 알고 있다.",
+      "type": "scale",
+      "required": true,
+      "active": true,
+      "order": 46,
+      "hint": ""
+    },
+    {
+      "id": "s47",
+      "category": "신고기록",
+      "prompt": "나는 내부신고를 했다는 이유로 동료를 따돌리거나 신원을 퍼뜨리지 않는다.",
+      "type": "scale",
+      "required": true,
+      "active": true,
+      "order": 47,
+      "hint": ""
+    },
+    {
+      "id": "s48",
+      "category": "신고기록",
+      "prompt": "나는 입찰, 견적, 하도급, 계열 거래 관련 메일을 임의로 지우지 않는다.",
+      "type": "scale",
+      "required": true,
+      "active": true,
+      "order": 48,
+      "hint": ""
+    },
+    {
+      "id": "s49",
+      "category": "신고기록",
+      "prompt": "나는 메신저로 정한 가격, 물량, 납기를 계약이나 품의에 다시 남긴다.",
+      "type": "scale",
+      "required": true,
+      "active": true,
+      "order": 49,
+      "hint": ""
+    },
+    {
+      "id": "s50",
+      "category": "신고기록",
+      "prompt": "나는 위반 가능성이 있는 업무를 보면 자가진단과 별도로 감사팀에 사실관계를 알린다.",
+      "type": "scale",
+      "required": true,
+      "active": true,
+      "order": 50,
+      "hint": ""
+    },
+    {
+      "id": "t01",
+      "category": "주관식",
+      "prompt": "이번 기간 동안 공정거래 기준으로 판단이 어려웠던 업무가 있으면 상황만 적어 주세요.",
+      "type": "text",
+      "required": true,
+      "active": true,
+      "order": 51,
+      "hint": "사람 이름보다 거래 유형과 판단이 어려웠던 지점을 적어 주세요."
+    },
+    {
+      "id": "t02",
+      "category": "주관식",
+      "prompt": "소속 부서에서 반복된다고 느끼는 거래 관행이나 리스크가 있나요?",
+      "type": "text",
+      "required": true,
+      "active": true,
+      "order": 52,
+      "hint": "입찰, 하도급, 계열거래, 유지보수 중 해당되는 장면을 적어 주세요."
+    },
+    {
+      "id": "t03",
+      "category": "주관식",
+      "prompt": "교육이나 편람에서 지금 업무에 꼭 필요한데 빠져 있는 내용은 무엇인가요?",
+      "type": "text",
+      "required": true,
+      "active": true,
+      "order": 53,
+      "hint": "다음에 반영할 수 있도록 주제만 적어도 됩니다."
+    },
+    {
+      "id": "t04",
+      "category": "주관식",
+      "prompt": "이번 달 내가 지키겠다는 공정거래 행동 한 가지를 적어 주세요.",
+      "type": "text",
+      "required": true,
+      "active": true,
+      "order": 54,
+      "hint": "회의 기록, 견적 검토, 협력사 계약 시점처럼 구체적인 행동이 좋습니다."
+    },
+    {
+      "id": "t05",
+      "category": "주관식",
+      "prompt": "감사팀과 CP 담당자가 알아야 할 사실이 있으면 적어 주세요.",
+      "type": "text",
+      "required": true,
+      "active": true,
+      "order": 55,
+      "hint": "긴급한 위반 징후는 이 칸을 기다리지 말고 감사팀에 바로 알려 주세요."
+    }
+  ]
+}

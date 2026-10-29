@@ -1,0 +1,47 @@
+{
+  "updatedAt": null,
+  "items": [
+    {
+      "id": "atec",
+      "name": "㈜에이텍",
+      "short": "에이텍",
+      "focus": "금융·유통 자동화",
+      "headcount": 320
+    },
+    {
+      "id": "mobility",
+      "name": "㈜에이텍모빌리티",
+      "short": "모빌리티",
+      "focus": "모빌리티 단말기",
+      "headcount": 180
+    },
+    {
+      "id": "system",
+      "name": "㈜에이텍시스템",
+      "short": "시스템",
+      "focus": "유지보수",
+      "headcount": 140
+    },
+    {
+      "id": "computer",
+      "name": "㈜에이텍컴퓨터",
+      "short": "컴퓨터",
+      "focus": "IT 사무기기",
+      "headcount": 90
+    },
+    {
+      "id": "cn",
+      "name": "㈜에이텍씨앤",
+      "short": "씨앤",
+      "focus": "그룹 계열",
+      "headcount": 80
+    },
+    {
+      "id": "auto",
+      "name": "㈜에이텍오토",
+      "short": "오토",
+      "focus": "자동화 장비",
+      "headcount": 40
+    }
+  ]
+}

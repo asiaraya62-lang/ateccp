@@ -1,0 +1,17 @@
+{
+  "updatedAt": "2026-10-29T00:00:00.000Z",
+  "items": [
+    {
+      "id": "u-audit",
+      "employeeNo": "AUDIT",
+      "name": "감사팀 관리자",
+      "email": "audit@atec.example",
+      "companyId": "atec",
+      "department": "감사팀",
+      "role": "audit",
+      "approved": true,
+      "passwordHash": "224d85c1d57a0491711dbb51813c8e00:3d7989312991eed688bc5d898a35538ca30ca48d3d7b590ae440bebd4467230f",
+      "createdAt": "2026-10-29T00:00:00.000Z"
+    }
+  ]
+}
