@@ -469,6 +469,21 @@ function StaffEditor({
     }
   }
 
+  async function reject(item: PublicUser) {
+    if (!window.confirm(`${item.name}(${item.employeeNo}) 접속 신청을 반려할까요? 신청 기록이 삭제됩니다.`)) return;
+    setMessage("");
+    try {
+      await readJson<{ ok: boolean }>("/api/audit/users", {
+        method: "DELETE",
+        body: JSON.stringify({ id: item.id }),
+      });
+      onChange(items.filter((entry) => entry.id !== item.id));
+      setMessage("반려했습니다.");
+    } catch (reason) {
+      setMessage(reason instanceof Error ? reason.message : "반려하지 못했습니다.");
+    }
+  }
+
   if (items.length === 0) {
     return <p className="rounded-2xl border border-dashed border-[#d7d0c4] bg-white p-8 text-sm">등록된 직원이 없습니다.</p>;
   }
@@ -496,7 +511,12 @@ function StaffEditor({
                   승인 취소
                 </Button>
               ) : (
-                <Button onClick={() => update(item.id, { approved: true })}>승인</Button>
+                <>
+                  <Button onClick={() => update(item.id, { approved: true })}>승인</Button>
+                  <Button variant="outline" onClick={() => reject(item)}>
+                    반려
+                  </Button>
+                </>
               )}
               <Button
                 variant="outline"
