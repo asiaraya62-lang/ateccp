@@ -1,7 +1,8 @@
 import { DOMAINS, HORIZON, ROADMAP, rollupPlans } from "./metrics";
 import { seoulParts } from "./period";
 import { SCALE } from "./scale";
-import type { PlanItem, Question } from "./types";
+import type { PlanItem, Question, ScheduleItem } from "./types";
+import { periodLabel, upcoming } from "./schedule";
 
 export type Urgency = "red" | "yellow" | "green";
 export type TaskSignal = {
@@ -75,7 +76,7 @@ export function computeSignals(plans: PlanItem[]): TaskSignal[] {
     });
 }
 
-export function buildContext(plans: PlanItem[], questions: Question[]) {
+export function buildContext(plans: PlanItem[], questions: Question[], schedule: ScheduleItem[] = []) {
   const signals = computeSignals(plans);
   const rolled = rollupPlans(plans);
   const { year, month, day } = seoulParts();
@@ -86,6 +87,7 @@ export function buildContext(plans: PlanItem[], questions: Question[]) {
     roadmap: ROADMAP,
     horizon: HORIZON,
     grades: GRADES,
+    schedule: upcoming(schedule, 8).map((s) => ({ when: periodLabel(s), kind: s.kind, title: s.title, target: s.target, owner: s.owner })),
     gradeNote: GRADE_NOTE,
     signals,
     scale: SCALE,
@@ -198,6 +200,15 @@ function gradeAnswer(ctx: BotContext, text: string) {
 
 export function ruleAnswer(ctx: BotContext, raw: string): string {
   const text = raw.toLowerCase();
+  if (/일정|스케줄|교육.*(언제|날짜|다음)|(언제|다음).*교육|위원회|이사회/.test(text) && ctx.schedule.length) {
+    const wantsEdu = /교육/.test(text);
+    const list = ctx.schedule.filter((s) => !wantsEdu || s.kind === "교육").slice(0, 4);
+    return [
+      wantsEdu ? `다음 교육은 ${list[0]?.when} '${list[0]?.title}'이에요 (대상: ${list[0]?.target}).` : "다가오는 CP 일정이에요.",
+      ...list.map((s) => `📅 ${s.when} [${s.kind}] ${s.title} – ${s.target} / ${s.owner}`),
+      "전체 일정은 상단 '일정' 메뉴에서 볼 수 있어요.",
+    ].join("\n");
+  }
   if (/정보\s?교환|허브|민감한? 정보|고객사를 통해|거래처를 통해/.test(text)) {
     const info = FAQ.find((f) => f.keys.includes("정보교환"));
     if (info) return info.answer(ctx);

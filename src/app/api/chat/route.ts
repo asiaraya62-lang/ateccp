@@ -1,7 +1,7 @@
 import { generateText } from "ai";
 import { requireUser } from "@/lib/auth";
 import { buildContext, ruleAnswer, systemPrompt } from "@/lib/chatbot";
-import { readPlans, readQuestions } from "@/lib/store";
+import { readPlans, readQuestions, readSchedule } from "@/lib/store";
 
 export const dynamic = "force-dynamic";
 export const maxDuration = 30;
@@ -30,8 +30,8 @@ export async function POST(request: Request) {
   const last = messages.at(-1);
   if (!last || last.role !== "user") return Response.json({ error: "질문을 입력해 주세요." }, { status: 400 });
 
-  const [plans, questions] = await Promise.all([readPlans(), readQuestions()]);
-  const ctx = buildContext(plans.items, questions.items.filter((q) => q.active).sort((a, b) => a.order - b.order));
+  const [plans, questions, schedule] = await Promise.all([readPlans(), readQuestions(), readSchedule()]);
+  const ctx = buildContext(plans.items, questions.items.filter((q) => q.active).sort((a, b) => a.order - b.order), schedule.items);
   const signals = ctx.signals.map(({ code, title, status, label, deadline }) => ({ code, title, status, label, deadline }));
 
   if (process.env.CP_CHAT_AI !== "off") {

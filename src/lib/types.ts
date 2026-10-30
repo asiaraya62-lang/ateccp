@@ -126,3 +126,15 @@ export type Overview = {
   roadmap: RoadmapItem[];
   horizon: { near: string; long: string };
 };
+
+export type ScheduleItem = {
+  id: string;
+  start: string;
+  end: string;
+  kind: "교육" | "활동";
+  title: string;
+  target: string;
+  owner: string;
+  status: "예정" | "완료";
+  isDefault: boolean;
+};

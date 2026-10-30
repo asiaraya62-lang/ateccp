@@ -8,6 +8,7 @@ import type { UserRole } from "@/lib/types";
 const links = [
   { href: "/", label: "도입 현황", active: (path: string) => path === "/" },
   { href: "/plans", label: "실행 과제", active: (path: string) => path.startsWith("/plans") },
+  { href: "/schedule", label: "일정", active: (path: string) => path.startsWith("/schedule") },
   { href: "/diagnosis", label: "본인 자가진단", active: (path: string) => path.startsWith("/diagnosis") },
   { href: "/audit", label: "감사팀", auditOnly: true, active: (path: string) => path.startsWith("/audit") },
 ];

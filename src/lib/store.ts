@@ -1,7 +1,7 @@
 import { promises as fs } from "fs";
 import path from "path";
 import { Redis } from "@upstash/redis";
-import type { Company, PlanItem, Question, StaffUser, Submission } from "./types";
+import type { Company, PlanItem, Question, ScheduleItem, StaffUser, Submission } from "./types";
 
 const dataDir = path.join(process.cwd(), "data");
 
@@ -155,5 +155,18 @@ export function updateSubmissions(change: (items: Submission[]) => Submission[] 
     const next = await change(items);
     await writeFile("submissions.json", next);
     return next;
+  });
+}
+
+export function readSchedule() {
+  return readFile<Wrapped<ScheduleItem>>("schedule.json", { updatedAt: null, items: [] });
+}
+
+export function updateSchedule(change: (items: ScheduleItem[]) => ScheduleItem[] | Promise<ScheduleItem[]>) {
+  return withLock(async () => {
+    const current = await readFile<Wrapped<ScheduleItem>>("schedule.json", { updatedAt: null, items: [] });
+    const items = await change(current.items);
+    await writeFile("schedule.json", { updatedAt: new Date().toISOString(), items });
+    return items;
   });
 }

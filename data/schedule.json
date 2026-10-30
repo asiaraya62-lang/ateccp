@@ -1,0 +1,258 @@
+{
+  "updatedAt": null,
+  "items": [
+    {
+      "id": "sch01",
+      "start": "2026-11-16",
+      "end": "",
+      "kind": "교육",
+      "title": "정보교환 담합 특별교육 (경쟁사·고객사 가격정보 교환 금지)",
+      "target": "영업·입찰·구매 부서",
+      "owner": "감사팀",
+      "status": "예정",
+      "isDefault": true
+    },
+    {
+      "id": "sch02",
+      "start": "2026-11-25",
+      "end": "",
+      "kind": "활동",
+      "title": "CP 자가진단 기준평가표 v2 시행 안내",
+      "target": "전 임직원",
+      "owner": "감사팀",
+      "status": "예정",
+      "isDefault": true
+    },
+    {
+      "id": "sch03",
+      "start": "2026-12-10",
+      "end": "",
+      "kind": "활동",
+      "title": "CP위원회 (4분기) – 자가진단 결과·레드플래그 점검",
+      "target": "CP위원회",
+      "owner": "자율준수관리자",
+      "status": "예정",
+      "isDefault": true
+    },
+    {
+      "id": "sch04",
+      "start": "2026-12-18",
+      "end": "",
+      "kind": "활동",
+      "title": "이사회 CP 운영 보고 (2026 결과·2027 계획)",
+      "target": "이사회",
+      "owner": "자율준수관리자",
+      "status": "예정",
+      "isDefault": true
+    },
+    {
+      "id": "sch05",
+      "start": "2027-01-04",
+      "end": "2027-01-15",
+      "kind": "활동",
+      "title": "2027 CP 실적연도 개시 · CEO 자율준수 메시지 공표",
+      "target": "전 임직원",
+      "owner": "대표이사·감사팀",
+      "status": "예정",
+      "isDefault": true
+    },
+    {
+      "id": "sch06",
+      "start": "2027-01-20",
+      "end": "",
+      "kind": "교육",
+      "title": "하도급법 부서교육 (서면교부·대금·기술자료)",
+      "target": "구매·외주 부서",
+      "owner": "감사팀",
+      "status": "예정",
+      "isDefault": true
+    },
+    {
+      "id": "sch07",
+      "start": "2027-02-15",
+      "end": "2027-02-26",
+      "kind": "교육",
+      "title": "1분기 전 임직원 CP 정기교육 (온라인)",
+      "target": "전 임직원",
+      "owner": "감사팀",
+      "status": "예정",
+      "isDefault": true
+    },
+    {
+      "id": "sch08",
+      "start": "2027-03-11",
+      "end": "",
+      "kind": "활동",
+      "title": "CP위원회 (1분기)",
+      "target": "CP위원회",
+      "owner": "자율준수관리자",
+      "status": "예정",
+      "isDefault": true
+    },
+    {
+      "id": "sch09",
+      "start": "2027-04-12",
+      "end": "2027-04-23",
+      "kind": "활동",
+      "title": "상반기 내부감사 (입찰·계열거래)",
+      "target": "영업·계열거래 부서",
+      "owner": "감사팀",
+      "status": "예정",
+      "isDefault": true
+    },
+    {
+      "id": "sch10",
+      "start": "2027-05-17",
+      "end": "2027-05-28",
+      "kind": "교육",
+      "title": "2분기 전 임직원 CP 정기교육",
+      "target": "전 임직원",
+      "owner": "감사팀",
+      "status": "예정",
+      "isDefault": true
+    },
+    {
+      "id": "sch11",
+      "start": "2027-06-01",
+      "end": "2027-06-15",
+      "kind": "활동",
+      "title": "상반기 자가진단 집중 실시·결과 분석",
+      "target": "전 임직원",
+      "owner": "감사팀",
+      "status": "예정",
+      "isDefault": true
+    },
+    {
+      "id": "sch12",
+      "start": "2027-06-10",
+      "end": "",
+      "kind": "활동",
+      "title": "CP위원회 (2분기)",
+      "target": "CP위원회",
+      "owner": "자율준수관리자",
+      "status": "예정",
+      "isDefault": true
+    },
+    {
+      "id": "sch13",
+      "start": "2027-07-08",
+      "end": "",
+      "kind": "활동",
+      "title": "이사회 상반기 CP 운영 보고",
+      "target": "이사회",
+      "owner": "자율준수관리자",
+      "status": "예정",
+      "isDefault": true
+    },
+    {
+      "id": "sch14",
+      "start": "2027-07-19",
+      "end": "",
+      "kind": "교육",
+      "title": "표시광고·거래상지위 남용 교육",
+      "target": "영업·마케팅 부서",
+      "owner": "감사팀",
+      "status": "예정",
+      "isDefault": true
+    },
+    {
+      "id": "sch15",
+      "start": "2027-08-16",
+      "end": "2027-08-27",
+      "kind": "교육",
+      "title": "3분기 전 임직원 CP 정기교육",
+      "target": "전 임직원",
+      "owner": "감사팀",
+      "status": "예정",
+      "isDefault": true
+    },
+    {
+      "id": "sch16",
+      "start": "2027-09-09",
+      "end": "",
+      "kind": "활동",
+      "title": "CP위원회 (3분기)",
+      "target": "CP위원회",
+      "owner": "자율준수관리자",
+      "status": "예정",
+      "isDefault": true
+    },
+    {
+      "id": "sch17",
+      "start": "2027-09-13",
+      "end": "",
+      "kind": "교육",
+      "title": "정보교환 담합 보수교육 (협회·업계 모임 참가자)",
+      "target": "협회 활동 참가자",
+      "owner": "감사팀",
+      "status": "예정",
+      "isDefault": true
+    },
+    {
+      "id": "sch18",
+      "start": "2027-10-11",
+      "end": "2027-10-22",
+      "kind": "활동",
+      "title": "하반기 내부감사 (하도급·기술자료)",
+      "target": "구매·외주 부서",
+      "owner": "감사팀",
+      "status": "예정",
+      "isDefault": true
+    },
+    {
+      "id": "sch19",
+      "start": "2027-11-15",
+      "end": "2027-11-26",
+      "kind": "교육",
+      "title": "4분기 전 임직원 CP 정기교육",
+      "target": "전 임직원",
+      "owner": "감사팀",
+      "status": "예정",
+      "isDefault": true
+    },
+    {
+      "id": "sch20",
+      "start": "2027-12-01",
+      "end": "2027-12-15",
+      "kind": "활동",
+      "title": "하반기 자가진단 집중 실시·결과 분석",
+      "target": "전 임직원",
+      "owner": "감사팀",
+      "status": "예정",
+      "isDefault": true
+    },
+    {
+      "id": "sch21",
+      "start": "2027-12-09",
+      "end": "",
+      "kind": "활동",
+      "title": "CP위원회 (4분기) · 연간 CP 운영 평가",
+      "target": "CP위원회",
+      "owner": "자율준수관리자",
+      "status": "예정",
+      "isDefault": true
+    },
+    {
+      "id": "sch22",
+      "start": "2027-12-17",
+      "end": "",
+      "kind": "활동",
+      "title": "이사회 연간 CP 보고 · 2028 CP 등급평가 신청 준비 착수",
+      "target": "이사회",
+      "owner": "자율준수관리자",
+      "status": "예정",
+      "isDefault": true
+    },
+    {
+      "id": "sch23",
+      "start": "2027-12-27",
+      "end": "",
+      "kind": "활동",
+      "title": "CP 등급평가 실적보고서 초안 작성 (2028 신청 대비)",
+      "target": "감사팀",
+      "owner": "감사팀",
+      "status": "예정",
+      "isDefault": true
+    }
+  ]
+}

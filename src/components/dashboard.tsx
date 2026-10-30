@@ -1,8 +1,10 @@
+import { periodLabel } from "@/lib/schedule";
+import type { ScheduleItem } from "@/lib/types";
 import Link from "next/link";
 import { GoalBar } from "@/components/goal-bar";
 import type { Overview } from "@/lib/types";
 
-export function Dashboard({ data }: { data: Overview }) {
+export function Dashboard({ data, upcoming = [] }: { data: Overview; upcoming?: ScheduleItem[] }) {
   const gap = data.overall.target - data.overall.current;
 
   return (
@@ -52,6 +54,30 @@ export function Dashboard({ data }: { data: Overview }) {
             </p>
           </div>
         </div>
+      </section>
+
+      <section className="rounded-2xl border border-[#e4ddd2] bg-white p-6 sm:p-8">
+        <div className="flex flex-wrap items-baseline justify-between gap-2">
+          <div>
+            <p className="text-xs tracking-wide text-[#8a7044]">교육 · 공정거래 활동</p>
+            <h2 className="mt-1 text-2xl font-semibold">다가오는 일정</h2>
+          </div>
+          <Link href="/schedule" className="text-sm text-[#1d3b57] underline">전체 일정표</Link>
+        </div>
+        {upcoming.length === 0 ? (
+          <p className="mt-3 text-sm text-[#667386]">예정된 일정이 없습니다.</p>
+        ) : (
+          <ul className="mt-4 divide-y divide-[#f0ebe3] text-sm">
+            {upcoming.map((item) => (
+              <li key={item.id} className="flex flex-wrap items-center gap-3 py-2.5">
+                <span className="w-40 shrink-0 text-[#4d5b6c]">{periodLabel(item)}</span>
+                <span className={`rounded-full px-2 py-0.5 text-xs ${item.kind === "교육" ? "bg-[#e7eef6] text-[#1d3b57]" : "bg-[#f6eedd] text-[#6b5530]"}`}>{item.kind}</span>
+                <span className="min-w-0 flex-1 font-medium">{item.title}</span>
+                <span className="text-xs text-[#667386]">{item.target}</span>
+              </li>
+            ))}
+          </ul>
+        )}
       </section>
 
       <section id="personal" className="grid gap-4 rounded-2xl border border-[#e0c48a] bg-[#fffaf1] p-6 sm:grid-cols-[minmax(0,1fr)_auto] sm:items-center sm:p-8">
