@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist } from "next/font/google";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
+import { CpChatbot } from "@/components/cp-chatbot";
 import { getCurrentUser, isReadOnlyUser } from "@/lib/auth";
 import "./globals.css";
 
@@ -24,6 +25,7 @@ export default async function RootLayout({ children }: LayoutProps<"/">) {
         <SiteHeader user={user ? { name: user.name, role: user.role, readOnly: isReadOnlyUser(user) } : null} />
         <main className="flex-1">{children}</main>
         <SiteFooter />
+        {user ? <CpChatbot name={user.name} /> : null}
       </body>
     </html>
   );
