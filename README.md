@@ -62,6 +62,8 @@ npm run dev
 - `data/users.json`: 직원 계정. 비밀번호는 해시만 저장합니다.
 - `data/submissions.json`: 제출 원문. 저장소에는 올리지 않습니다.
 
+배포된 사이트(Vercel)에서는 위 데이터를 Upstash Redis(`KV_REST_API_URL`/`KV_REST_API_TOKEN` 또는 `UPSTASH_REDIS_REST_URL`/`UPSTASH_REDIS_REST_TOKEN`)에 `cp:<파일이름>` 키로 저장합니다. 키가 비어 있으면 처음 읽을 때 저장소의 `data/*.json`으로 채웁니다. 이후 변경은 Redis에만 남으므로, 배포 뒤 `data/*.json`을 고쳐도 운영 데이터는 바뀌지 않습니다. Redis 변수가 없으면(내 컴퓨터) 지금처럼 `data/*.json` 파일을 씁니다.
+
 대상 인원은 공시 직원 수가 아니라 감사팀이 정하는 참여 기준입니다.
 
 내 컴퓨터에서 실행하면 제출 원문은 `data/submissions.json`에 쌓입니다. 이 파일은 저장소에 올리지 않습니다.

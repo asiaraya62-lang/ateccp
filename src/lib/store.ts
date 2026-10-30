@@ -1,5 +1,6 @@
 import { promises as fs } from "fs";
 import path from "path";
+import { Redis } from "@upstash/redis";
 import type { Company, PlanItem, Question, StaffUser, Submission } from "./types";
 
 const dataDir = path.join(process.cwd(), "data");
@@ -17,7 +18,27 @@ function withLock<T>(task: () => Promise<T>) {
   return run;
 }
 
-async function readFile<T>(name: string, fallback: T): Promise<T> {
+function redisUrl() {
+  return process.env.KV_REST_API_URL || process.env.UPSTASH_REDIS_REST_URL || "";
+}
+
+function redisToken() {
+  return process.env.KV_REST_API_TOKEN || process.env.UPSTASH_REDIS_REST_TOKEN || "";
+}
+
+let redisClient: Redis | null = null;
+
+function getRedis(): Redis | null {
+  const url = redisUrl();
+  const token = redisToken();
+  if (!url || !token) return null;
+  if (!redisClient) redisClient = new Redis({ url, token });
+  return redisClient;
+}
+
+const keyFor = (name: string) => `cp:${name}`;
+
+async function readLocalFile<T>(name: string, fallback: T): Promise<T> {
   try {
     const raw = await fs.readFile(path.join(dataDir, name), "utf8");
     return JSON.parse(raw) as T;
@@ -26,12 +47,30 @@ async function readFile<T>(name: string, fallback: T): Promise<T> {
   }
 }
 
+// Redis when configured (Vercel); local data/*.json otherwise (local dev).
+// On first read the Redis key is seeded from the bundled data/*.json file.
+async function readFile<T>(name: string, fallback: T): Promise<T> {
+  const redis = getRedis();
+  if (!redis) return readLocalFile(name, fallback);
+  const stored = await redis.get<T>(keyFor(name));
+  if (stored !== null && stored !== undefined) return stored;
+  const seed = await readLocalFile(name, fallback);
+  await redis.set(keyFor(name), seed, { nx: true });
+  const after = await redis.get<T>(keyFor(name));
+  return after ?? seed;
+}
+
 export function isReadOnlyStoreError(error: unknown) {
   const code = (error as NodeJS.ErrnoException)?.code;
   return code === "EROFS" || code === "EACCES" || code === "EPERM" || code === "ENOSPC";
 }
 
 async function writeFile(name: string, value: unknown) {
+  const redis = getRedis();
+  if (redis) {
+    await redis.set(keyFor(name), value);
+    return;
+  }
   await fs.mkdir(dataDir, { recursive: true });
   const file = path.join(dataDir, name);
   const temp = `${file}.${process.pid}.tmp`;
