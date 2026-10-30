@@ -1,4 +1,4 @@
-import { requireAudit } from "@/lib/auth";
+import { requireAuditWrite } from "@/lib/auth";
 import { readPlans, savePlans } from "@/lib/store";
 
 function percent(value: unknown) {
@@ -8,7 +8,7 @@ function percent(value: unknown) {
 }
 
 export async function PATCH(request: Request) {
-  const denied = await requireAudit();
+  const denied = await requireAuditWrite();
   if (denied) return denied;
   const body = (await request.json().catch(() => null)) as {
     id?: string;

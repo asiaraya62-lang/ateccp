@@ -20,11 +20,13 @@ export function DiagnosisForm({
   questions,
   periodLabel,
   account,
+  readOnly = false,
 }: {
   companies: Company[];
   questions: Question[];
   periodLabel: string;
   account: PublicUser;
+  readOnly?: boolean;
 }) {
   const [stepIndex, setStepIndex] = useState(0);
   const companyId = account.companyId;
@@ -344,8 +346,8 @@ export function DiagnosisForm({
             이전
           </Button>
           {step.kind === "review" ? (
-            <Button type="button" className="h-11 px-5" disabled={submitting || questions.length === 0} onClick={submit}>
-              {submitting ? "전달 중" : "입력완료"}
+            <Button type="button" className="h-11 px-5" disabled={readOnly || submitting || questions.length === 0} onClick={submit}>
+              {readOnly ? "조회 전용" : submitting ? "전달 중" : "입력완료"}
             </Button>
           ) : (
             <Button type="button" className="h-11 px-5" disabled={questions.length === 0} onClick={goNext}>

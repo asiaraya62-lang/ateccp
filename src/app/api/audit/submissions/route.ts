@@ -1,4 +1,4 @@
-import { requireAudit } from "@/lib/auth";
+import { requireAudit, requireAuditWrite } from "@/lib/auth";
 import { readSubmissions } from "@/lib/store";
 
 export const dynamic = "force-dynamic";

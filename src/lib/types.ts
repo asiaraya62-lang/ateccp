@@ -9,6 +9,7 @@ export type StaffUser = {
   department: string;
   role: UserRole;
   approved: boolean;
+  readOnly?: boolean;
   passwordHash: string;
   createdAt: string;
 };

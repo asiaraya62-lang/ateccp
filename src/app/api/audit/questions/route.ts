@@ -1,4 +1,4 @@
-import { requireAudit } from "@/lib/auth";
+import { requireAudit, requireAuditWrite } from "@/lib/auth";
 import { readQuestions, saveQuestions } from "@/lib/store";
 import type { Question } from "@/lib/types";
 
@@ -19,7 +19,7 @@ export async function GET() {
 }
 
 export async function POST(request: Request) {
-  const denied = await requireAudit();
+  const denied = await requireAuditWrite();
   if (denied) return denied;
   const body = (await request.json().catch(() => null)) as Partial<Question> | null;
   const prompt = clean(body?.prompt, 500);
@@ -44,7 +44,7 @@ export async function POST(request: Request) {
 }
 
 export async function PATCH(request: Request) {
-  const denied = await requireAudit();
+  const denied = await requireAuditWrite();
   if (denied) return denied;
   const body = (await request.json().catch(() => null)) as Partial<Question> | null;
   if (!body?.id) return Response.json({ error: "문항을 지정해 주세요." }, { status: 400 });

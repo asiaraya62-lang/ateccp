@@ -34,3 +34,24 @@ export async function requireAudit() {
   }
   return null;
 }
+
+const READONLY_EMPLOYEE_NOS = new Set(["EVAL01"]);
+export const READ_ONLY_MESSAGE = "평가위원 계정은 조회만 가능합니다.";
+
+export function isReadOnlyUser(user: { readOnly?: boolean; employeeNo: string } | null | undefined) {
+  if (!user) return false;
+  return user.readOnly === true || READONLY_EMPLOYEE_NOS.has(user.employeeNo.toUpperCase());
+}
+
+export function readOnlyResponse() {
+  return Response.json({ error: READ_ONLY_MESSAGE }, { status: 403 });
+}
+
+/** Audit role required and the account must not be read-only (for mutations). */
+export async function requireAuditWrite() {
+  const denied = await requireAudit();
+  if (denied) return denied;
+  const user = await getCurrentUser();
+  if (isReadOnlyUser(user)) return readOnlyResponse();
+  return null;
+}

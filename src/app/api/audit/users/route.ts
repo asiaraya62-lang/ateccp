@@ -1,4 +1,4 @@
-import { requireAudit, toPublicUser } from "@/lib/auth";
+import { requireAudit, toPublicUser, requireAuditWrite } from "@/lib/auth";
 import { readUsers, updateUsers } from "@/lib/store";
 import type { UserRole } from "@/lib/types";
 
@@ -16,7 +16,7 @@ export async function GET() {
 }
 
 export async function PATCH(request: Request) {
-  const denied = await requireAudit();
+  const denied = await requireAuditWrite();
   if (denied) return denied;
   const body = (await request.json().catch(() => null)) as {
     id?: string;
@@ -44,7 +44,7 @@ export async function PATCH(request: Request) {
 }
 
 export async function DELETE(request: Request) {
-  const denied = await requireAudit();
+  const denied = await requireAuditWrite();
   if (denied) return denied;
   const body = (await request.json().catch(() => null)) as { id?: string } | null;
   if (!body?.id) return Response.json({ error: "직원을 지정해 주세요." }, { status: 400 });

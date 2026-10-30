@@ -12,7 +12,7 @@ const links = [
   { href: "/audit", label: "감사팀", auditOnly: true, active: (path: string) => path.startsWith("/audit") },
 ];
 
-export function SiteHeader({ user }: { user: { name: string; role: UserRole } | null }) {
+export function SiteHeader({ user }: { user: { name: string; role: UserRole; readOnly?: boolean } | null }) {
   const path = usePathname();
 
   async function logout() {
@@ -30,6 +30,9 @@ export function SiteHeader({ user }: { user: { name: string; role: UserRole } | 
         {user && path !== "/login" ? (
           <div className="flex flex-wrap items-center gap-2">
             <p className="text-xs text-[#667386]">{user.name}</p>
+            {user.readOnly ? (
+              <span className="rounded-full border border-[#d9c9a8] bg-[#fbf6ea] px-2 py-0.5 text-[11px] text-[#6b5530]">조회 전용</span>
+            ) : null}
             <nav className="flex flex-wrap gap-1">
               {links
                 .filter((link) => !link.auditOnly || user.role === "audit")

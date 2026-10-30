@@ -1,4 +1,4 @@
-import { requireAudit } from "@/lib/auth";
+import { requireAuditWrite } from "@/lib/auth";
 import { readCompanies, saveCompanies } from "@/lib/store";
 import type { Company } from "@/lib/types";
 
@@ -7,7 +7,7 @@ function clean(value: unknown, max: number) {
 }
 
 export async function PUT(request: Request) {
-  const denied = await requireAudit();
+  const denied = await requireAuditWrite();
   if (denied) return denied;
   const body = (await request.json().catch(() => null)) as Partial<Company> & { create?: boolean } | null;
   if (!body) return Response.json({ error: "내용을 확인해 주세요." }, { status: 400 });

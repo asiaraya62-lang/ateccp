@@ -1,6 +1,8 @@
 "use client";
 
-import { useEffect, useState, type ReactNode } from "react";
+import { createContext, useContext, useEffect, useState, type ReactNode } from "react";
+
+const ReadOnlyContext = createContext(false);
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -19,7 +21,7 @@ async function readJson<T>(url: string, init?: RequestInit) {
   return payload;
 }
 
-export function AuditConsole() {
+export function AuditConsole({ readOnly = false }: { readOnly?: boolean }) {
   const [ready, setReady] = useState(false);
   const [error, setError] = useState("");
   const [overview, setOverview] = useState<Overview | null>(null);
@@ -54,7 +56,13 @@ export function AuditConsole() {
   }
 
   return (
+    <ReadOnlyContext.Provider value={readOnly}>
     <div className="mx-auto max-w-5xl px-4 py-8">
+      {readOnly ? (
+        <p className="mb-4 rounded-md border border-[#d9c9a8] bg-[#fbf6ea] px-3 py-2 text-sm text-[#6b5530]">
+          조회 전용 계정입니다. 화면은 모두 볼 수 있지만 수정·삭제·승인은 할 수 없습니다.
+        </p>
+      ) : null}
       <div className="flex flex-wrap items-end justify-between gap-3">
         <div>
           <p className="text-xs tracking-wide text-[#8a7044]">감사팀</p>
@@ -124,6 +132,7 @@ export function AuditConsole() {
         </TabsContent>
       </Tabs>
     </div>
+    </ReadOnlyContext.Provider>
   );
 }
 
@@ -231,6 +240,7 @@ function PlanEditor({ items, onSaved }: { items: PlanItem[]; onSaved: (item: Pla
 }
 
 function PlanRow({ item, onSaved }: { item: PlanItem; onSaved: (item: PlanItem) => void }) {
+  const readOnly = useContext(ReadOnlyContext);
   const [current, setCurrent] = useState(String(item.current));
   const [targetYear, setTargetYear] = useState(String(item.targetYear));
   const [targetLong, setTargetLong] = useState(String(item.targetLong));
@@ -265,7 +275,7 @@ function PlanRow({ item, onSaved }: { item: PlanItem; onSaved: (item: PlanItem) 
         <NumberField label="2030 목표" value={targetLong} onChange={setTargetLong} />
       </div>
       <div className="mt-3 flex items-center gap-3">
-        <Button onClick={save}>저장</Button>
+        <Button disabled={readOnly} onClick={save}>저장</Button>
         {message ? <p className="text-xs text-[#667386]">{message}</p> : null}
       </div>
     </article>
@@ -282,6 +292,7 @@ function NumberField({ label, value, onChange }: { label: string; value: string;
 }
 
 function QuestionEditor({ items, onChange }: { items: Question[]; onChange: (items: Question[]) => void }) {
+  const readOnly = useContext(ReadOnlyContext);
   const [prompt, setPrompt] = useState("");
   const [category, setCategory] = useState("추가");
   const [type, setType] = useState<"scale" | "text">("scale");
@@ -314,7 +325,7 @@ function QuestionEditor({ items, onChange }: { items: Question[]; onChange: (ite
           </select>
           <Input className="h-10 bg-white" value={prompt} onChange={(event) => setPrompt(event.target.value)} placeholder="문항" />
         </div>
-        <Button className="mt-3" onClick={add}>
+        <Button className="mt-3" disabled={readOnly} onClick={add}>
           추가
         </Button>
         {message ? <p className="mt-2 text-xs text-[#667386]">{message}</p> : null}
@@ -331,6 +342,7 @@ function QuestionEditor({ items, onChange }: { items: Question[]; onChange: (ite
 }
 
 function QuestionRow({ item, onSaved }: { item: Question; onSaved: (item: Question) => void }) {
+  const readOnly = useContext(ReadOnlyContext);
   const [prompt, setPrompt] = useState(item.prompt);
   const [active, setActive] = useState(item.active);
   const [message, setMessage] = useState("");
@@ -360,7 +372,7 @@ function QuestionRow({ item, onSaved }: { item: Question; onSaved: (item: Questi
         진단표에 사용
       </label>
       <div className="mt-3 flex items-center gap-3">
-        <Button onClick={save}>저장</Button>
+        <Button disabled={readOnly} onClick={save}>저장</Button>
         {message ? <p className="text-xs text-[#667386]">{message}</p> : null}
       </div>
     </article>
@@ -374,6 +386,7 @@ function CompanyEditor({
   items: Company[];
   onChange: (items: Company[]) => void;
 }) {
+  const readOnly = useContext(ReadOnlyContext);
   const [draft, setDraft] = useState({ name: "", short: "", focus: "", headcount: "0" });
 
   async function create() {
@@ -398,7 +411,7 @@ function CompanyEditor({
           <Input className="h-10 bg-white" placeholder="사업" value={draft.focus} onChange={(event) => setDraft({ ...draft, focus: event.target.value })} />
           <Input className="h-10 bg-white" placeholder="대상 인원" value={draft.headcount} onChange={(event) => setDraft({ ...draft, headcount: event.target.value })} />
         </div>
-        <Button className="mt-3" onClick={create}>
+        <Button className="mt-3" disabled={readOnly} onClick={create}>
           추가
         </Button>
       </article>
@@ -407,6 +420,7 @@ function CompanyEditor({
 }
 
 function CompanyRow({ item, onSaved }: { item: Company; onSaved: (item: Company) => void }) {
+  const readOnly = useContext(ReadOnlyContext);
   const [name, setName] = useState(item.name);
   const [short, setShort] = useState(item.short);
   const [focus, setFocus] = useState(item.focus);
@@ -436,7 +450,7 @@ function CompanyRow({ item, onSaved }: { item: Company; onSaved: (item: Company)
         <Input className="h-10 bg-white" value={headcount} onChange={(event) => setHeadcount(event.target.value)} />
       </div>
       <div className="mt-3 flex items-center gap-3">
-        <Button onClick={save}>저장</Button>
+        <Button disabled={readOnly} onClick={save}>저장</Button>
         {message ? <p className="text-xs text-[#667386]">{message}</p> : null}
       </div>
     </article>
@@ -452,6 +466,7 @@ function StaffEditor({
   companies: Company[];
   onChange: (items: PublicUser[]) => void;
 }) {
+  const readOnly = useContext(ReadOnlyContext);
   const [message, setMessage] = useState("");
   const companyName = (id: string) => companies.find((item) => item.id === id)?.name ?? id;
 
@@ -507,19 +522,20 @@ function StaffEditor({
             </div>
             <div className="flex flex-wrap gap-2">
               {item.approved ? (
-                <Button variant="outline" onClick={() => update(item.id, { approved: false })}>
+                <Button variant="outline" disabled={readOnly} onClick={() => update(item.id, { approved: false })}>
                   승인 취소
                 </Button>
               ) : (
                 <>
-                  <Button onClick={() => update(item.id, { approved: true })}>승인</Button>
-                  <Button variant="outline" onClick={() => reject(item)}>
+                  <Button disabled={readOnly} onClick={() => update(item.id, { approved: true })}>승인</Button>
+                  <Button variant="outline" disabled={readOnly} onClick={() => reject(item)}>
                     반려
                   </Button>
                 </>
               )}
               <Button
                 variant="outline"
+                disabled={readOnly}
                 onClick={() => update(item.id, { role: item.role === "audit" ? "employee" : "audit" })}
               >
                 {item.role === "audit" ? "직원으로" : "감사팀으로"}

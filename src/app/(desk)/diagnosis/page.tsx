@@ -1,6 +1,6 @@
 import { DiagnosisForm } from "@/components/diagnosis-form";
 import { MySubmissions } from "@/components/my-submissions";
-import { getCurrentUser } from "@/lib/auth";
+import { getCurrentUser, isReadOnlyUser } from "@/lib/auth";
 import { getActiveQuestions, getOverview } from "@/lib/overview";
 import { readSubmissions } from "@/lib/store";
 import { redirect } from "next/navigation";
@@ -25,6 +25,7 @@ export default async function DiagnosisPage() {
       <MySubmissions items={mine} />
       <DiagnosisForm
         account={user}
+        readOnly={isReadOnlyUser(user)}
         companies={overview.companies}
         questions={questions}
         periodLabel={overview.periodLabel}

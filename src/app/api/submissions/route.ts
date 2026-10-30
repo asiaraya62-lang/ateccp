@@ -1,4 +1,4 @@
-import { requireUser } from "@/lib/auth";
+import { isReadOnlyUser, readOnlyResponse, requireUser } from "@/lib/auth";
 import { scoreSnapshots } from "@/lib/scale";
 import { sendSubmission } from "@/lib/email";
 import { seoulPeriod } from "@/lib/period";
@@ -27,6 +27,7 @@ export async function GET() {
 export async function POST(request: Request) {
   const { user, error } = await requireUser();
   if (error || !user) return error;
+  if (isReadOnlyUser(user)) return readOnlyResponse();
   const body = (await request.json().catch(() => null)) as Record<string, unknown> | null;
   if (!body) return Response.json({ error: "제출 내용을 읽지 못했습니다." }, { status: 400 });
   if (clean(body.website, 80)) return Response.json({ error: "제출을 접수하지 못했습니다." }, { status: 400 });
