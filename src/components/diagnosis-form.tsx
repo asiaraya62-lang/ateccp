@@ -6,7 +6,8 @@ import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import { SCALE, scaleLabel, scoreSnapshots } from "@/lib/scale";
+import { SCALE, scaleLabel, scoreSnapshots, INFO_EXCHANGE_IDS } from "@/lib/scale";
+import { ScoreReport } from "@/components/score-report";
 import type { AnswerSnapshot, Company, PublicUser, Question, Submission } from "@/lib/types";
 
 type Step =
@@ -69,7 +70,8 @@ export function DiagnosisForm({
       })),
     [answers, questions],
   );
-  const preview = scoreSnapshots(snapshots);
+  const categoryById = useMemo(() => new Map(questions.map((q) => [q.id, q.category])), [questions]);
+  const preview = scoreSnapshots(snapshots, (id) => categoryById.get(id) ?? "추가");
 
   function setAnswer(id: string, value: string) {
     setAnswers((current) => ({ ...current, [id]: value }));
@@ -172,6 +174,16 @@ export function DiagnosisForm({
             <dd className="mt-1 font-medium">{receipt.attention.length}개</dd>
           </div>
         </dl>
+        <div className="mt-6">
+          <h2 className="mb-3 text-lg font-semibold">진단 결과</h2>
+          <ScoreReport
+            score={receipt.score}
+            categories={receipt.categories ?? preview.categories}
+            band={receipt.band ?? preview.band}
+            redFlags={receipt.redFlags ?? preview.redFlags}
+            infoExchange={receipt.infoExchange ?? preview.infoExchange}
+          />
+        </div>
         {receipt.attention.length > 0 ? (
           <div className="mt-4 rounded-2xl border border-[#efd2cc] bg-[#fff7f5] p-5">
             <h2 className="text-sm font-semibold">다시 볼 항목</h2>
@@ -263,8 +275,14 @@ export function DiagnosisForm({
               <fieldset key={question.id} className="border-t border-[#f0ebe3] pt-4">
                 <legend className="text-sm leading-6">
                   <span className="mr-2 text-xs text-[#8a7044]">{String(question.order).padStart(2, "0")}</span>
+                  {INFO_EXCHANGE_IDS.has(question.id) ? (
+                    <span className="mr-2 rounded bg-[#c0392b] px-1.5 py-0.5 text-[10px] font-semibold text-white">정보교환 주의</span>
+                  ) : null}
                   {question.prompt}
                 </legend>
+                {question.hint ? (
+                  <p className="mt-1 rounded-lg bg-[#f6f2ea] px-3 py-2 text-xs leading-5 text-[#4d5b6c]">💡 {question.hint}</p>
+                ) : null}
                 <RadioGroup
                   className="mt-3 grid gap-2 sm:grid-cols-2"
                   value={answers[question.id] ?? ""}
@@ -326,6 +344,10 @@ export function DiagnosisForm({
               구분 {reason === "monthly" ? "월례 정기" : "감사팀 요청"} · 예상 점수{" "}
               {preview.score === null ? "산출 없음" : `${preview.score}점`} · 주의 {preview.attention.length}문항
             </p>
+            <div className="rounded-2xl border border-[#e4ddd2] bg-[#fbf9f5] p-4">
+              <p className="mb-3 text-sm font-semibold">예상 진단 결과 (제출 전 미리보기 · 저장되지 않음)</p>
+              <ScoreReport {...preview} />
+            </div>
             <p className="text-[#667386]">입력완료를 누르면 수정할 수 없습니다. 월례 제출은 같은 사번으로 한 달에 한 번입니다.</p>
           </div>
         ) : null}

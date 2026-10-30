@@ -77,6 +77,10 @@ export type Submission = {
   answeredScale: number;
   notApplicable: number;
   attention: { questionId: string; prompt: string; value: string }[];
+  categories?: import("./scale").CategoryScore[];
+  band?: { band: string; action: string; ref: string } | null;
+  redFlags?: import("./scale").RedFlag[];
+  infoExchange?: { score: number | null; answered: number; flagged: number };
   emailStatus: EmailStatus;
   emailDetail: string;
 };

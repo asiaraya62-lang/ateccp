@@ -84,7 +84,8 @@ export async function POST(request: Request) {
   }
 
   const period = seoulPeriod();
-  const scored = scoreSnapshots(answers);
+  const categoryById = new Map(active.map((q) => [q.id, q.category]));
+  const scored = scoreSnapshots(answers, (id) => categoryById.get(id) ?? "추가");
   const now = new Date();
   const id = `CP-${period.replace("-", "")}-${now.getTime().toString(36).toUpperCase()}`;
   const draft: Submission = {
@@ -105,6 +106,10 @@ export async function POST(request: Request) {
     answeredScale: scored.answeredScale,
     notApplicable: scored.notApplicable,
     attention: scored.attention,
+    categories: scored.categories,
+    band: scored.band,
+    redFlags: scored.redFlags,
+    infoExchange: scored.infoExchange,
     emailStatus: "queued",
     emailDetail: "",
   };

@@ -9,6 +9,8 @@ import { Textarea } from "@/components/ui/textarea";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { scaleLabel } from "@/lib/scale";
 import { seoulStamp } from "@/lib/period";
+import { ScoreReport } from "@/components/score-report";
+import { scoreSnapshots } from "@/lib/scale";
 import type { Company, Overview, PlanItem, PublicUser, Question, Submission } from "@/lib/types";
 
 async function readJson<T>(url: string, init?: RequestInit) {
@@ -161,7 +163,10 @@ function Inbox({
           원장 내려받기
         </Button>
       </div>
-      {items.map((item) => (
+      {items.map((item) => {
+        const report = scoreSnapshots(item.answers);
+        const critical = report.redFlags.filter((f) => f.level === "critical").length;
+        return (
         <article key={item.id} className="rounded-2xl border border-[#e4ddd2] bg-white p-4">
           <button type="button" className="w-full text-left" onClick={() => onOpen(openId === item.id ? "" : item.id)}>
             <div className="flex flex-wrap items-baseline justify-between gap-2">
@@ -171,7 +176,10 @@ function Inbox({
               <p className="text-xs text-[#667386]">{seoulStamp(new Date(item.submittedAt))}</p>
             </div>
             <p className="mt-1 text-xs text-[#667386]">
-              {item.reason === "monthly" ? "월례" : "감사팀 요청"} · {item.score === null ? "점수 없음" : `${item.score}점`} · 주의{" "}
+              {item.reason === "monthly" ? "월례" : "감사팀 요청"} · {report.score === null ? "점수 없음" : `${report.score}점`} ·{" "}
+              {report.band ? `위험등급 ${report.band.band}` : ""} · 레드플래그 {report.redFlags.length}
+              {critical ? <span className="ml-1 font-semibold text-[#8d1f1f]">🔴 즉시 점검 {critical}</span> : null}
+              {report.infoExchange.flagged ? <span className="ml-1 font-semibold text-[#8d1f1f]">★ 정보교환 {report.infoExchange.flagged}</span> : null} · 주의{" "}
               {item.attention.length} · {item.emailStatus === "sent" ? "메일 발송" : item.emailStatus === "failed" ? "메일 실패" : "수신함 보관"}
             </p>
           </button>
@@ -181,6 +189,7 @@ function Inbox({
                 {item.id} · {item.employeeNo} · {item.email}
               </p>
               <p className="text-[#667386]">{item.emailDetail}</p>
+              <ScoreReport {...report} />
               <Section title="주의 문항">
                 {item.attention.length
                   ? item.attention.map((answer) => (
@@ -215,7 +224,8 @@ function Inbox({
             </div>
           ) : null}
         </article>
-      ))}
+        );
+      })}
     </div>
   );
 }

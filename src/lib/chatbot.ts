@@ -25,12 +25,14 @@ const YEAR_DEADLINE = Date.UTC(2027, 11, 31);
 export const DEADLINE_LABEL = "2027-12-31";
 export const LONG_DEADLINE_LABEL = "2030-12-31";
 
+export const GRADE_NOTE =
+  "공정거래 관련 법위반(과징금·조사방해 과태료·고발)이 있으면 평가점수에서 5점 감점돼요(최초 신청 기업은 제외). 근거: 공정거래 자율준수제도(CP) 운영·평가에 관한 규정(공정위 고시 제2025-3호).";
+
 export const GRADES = [
-  { grade: "AAA", text: "최우수 (90점 이상 수준)" },
-  { grade: "AA", text: "우수 (80점 이상) – 에이텍그룹 2030년 목표" },
-  { grade: "A", text: "양호 (70점 이상) – 에이텍그룹 2028년 최초 평가 목표" },
-  { grade: "BBB", text: "보통 (60점 이상)" },
-  { grade: "BB 이하", text: "미흡 – 감경 등 인센티브 없음" },
+  { grade: "AAA", text: "최우수 (90점 이상 100점 미만)" },
+  { grade: "AA", text: "우수 (80점 이상 90점 미만) – 에이텍그룹 2030년 목표" },
+  { grade: "A", text: "비교적 우수 (70점 이상 80점 미만) – 에이텍그룹 2028년 최초 평가 목표" },
+  { grade: "미지정", text: "70점 미만 – CP 우수기업 미지정 (2025.4.23 고시 개정으로 B·C·D 등급 폐지)" },
 ];
 
 function todayUtc() {
@@ -84,6 +86,7 @@ export function buildContext(plans: PlanItem[], questions: Question[]) {
     roadmap: ROADMAP,
     horizon: HORIZON,
     grades: GRADES,
+    gradeNote: GRADE_NOTE,
     signals,
     scale: SCALE,
     questionCategories: Array.from(new Set(questions.map((q) => q.category))),
@@ -128,6 +131,11 @@ const FAQ: { keys: string[]; answer: (ctx: BotContext) => string }[] = [
     keys: ["점수", "낮게", "솔직", "불이익", "1점", "2점"],
     answer: () =>
       "자가진단은 개인 평가가 아니라 회사의 위험 지점을 찾는 도구예요. '잘 지키지 못한다'나 '지키지 않는다'를 고른 문항은 감사팀이 교육·제도 개선 포인트로 활용하고, 솔직한 응답 때문에 불이익을 주지 않아요.",
+  },
+  {
+    keys: ["정보교환", "정보 교환", "민감", "허브", "고객사를 통해", "가격 정보", "견적 정보"],
+    answer: () =>
+      "정보교환 담합은 경쟁사와 가격·원가·생산량·재고·판매량·거래조건 같은 '경쟁상 민감한 정보'를 주고받기로 하는 것만으로도 성립하는 담합이에요(공정거래법 제40조①9호 후단, 2021.12.30 시행).\n• 직접이 아니어도 위험해요: 고객사·거래처·협회를 거쳐 경쟁사 가격을 듣거나 우리 가격이 전달되게 하는 것도 포함돼요.\n• 고객사와 우리 회사 가격을 협상하는 건 정상이지만, \"B사는 얼마 넣었어요?\"라고 묻거나 전달을 부탁하면 안 돼요.\n• 경쟁사 정보를 받으면 열지 말고 '받지 않겠다'고 회신한 뒤 감사팀에 알리세요. 공정위 심사지침상 수신 거부·신고 시점부터 합의에서 빠진 것으로 볼 수 있어요.\n• 모임에서 가격 얘기가 나오면 반대 의사를 밝히고 나와 기록을 남기세요.\n자가진단의 '정보교환 주의' 문항에 2점 이하로 답하면 감사팀 즉시 점검과 법무검토, 교육 안내가 진행돼요.",
   },
   {
     keys: ["담합"],
@@ -177,6 +185,7 @@ function gradeAnswer(ctx: BotContext, text: string) {
   return [
     "CP 등급은 공정거래위원회가 1년간의 운영 실적을 평가해 매겨요.",
     head,
+    `⚠️ ${GRADE_NOTE}`,
     "",
     `에이텍그룹 로드맵: 2027년 한 해를 실적 연도로 운영하고, 2028년에 최초 등급평가를 신청해 A등급을 목표로 해요. 2030년 목표는 AA예요.`,
     `👉 A등급을 받으려면 아래 과제를 ${DEADLINE_LABEL}까지 연간 목표치로 끌어올려야 해요 (긴급 순):`,

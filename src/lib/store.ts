@@ -86,8 +86,30 @@ export function readPlans() {
   return readFile<Wrapped<PlanItem>>("plans.json", { updatedAt: null, items: [] });
 }
 
-export function readQuestions() {
-  return readFile<Wrapped<Question>>("questions.json", { updatedAt: null, items: [] });
+// 기준평가표 v2(정보교환 담합) 신규 문항: Redis에 없으면 기존 문항·편집 내용은 그대로 두고 추가만 한다.
+const MIGRATED_QUESTION_IDS = ["s51", "s52", "s53", "s54", "s55", "s56"];
+const MIGRATED_HINT_IDS = ["s09", "s10", "s14"];
+
+export async function readQuestions() {
+  const current = await readFile<Wrapped<Question>>("questions.json", { updatedAt: null, items: [] });
+  if (!getRedis()) return current;
+  const missing = MIGRATED_QUESTION_IDS.filter((id) => !current.items.some((item) => item.id === id));
+  if (missing.length === 0) return current;
+  return withLock(async () => {
+    const latest = await readFile<Wrapped<Question>>("questions.json", { updatedAt: null, items: [] });
+    const seed = await readLocalFile<Wrapped<Question>>("questions.json", { updatedAt: null, items: [] });
+    const add = seed.items.filter(
+      (item) => MIGRATED_QUESTION_IDS.includes(item.id) && !latest.items.some((existing) => existing.id === item.id),
+    );
+    if (add.length === 0) return latest;
+    const items = latest.items.map((item) => {
+      const fromSeed = seed.items.find((s) => s.id === item.id);
+      return MIGRATED_HINT_IDS.includes(item.id) && !item.hint && fromSeed?.hint ? { ...item, hint: fromSeed.hint } : item;
+    });
+    const next = { updatedAt: new Date().toISOString(), items: [...items, ...add] };
+    await writeFile("questions.json", next);
+    return next;
+  });
 }
 
 export function readSubmissions() {

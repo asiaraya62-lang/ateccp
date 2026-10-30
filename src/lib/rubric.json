@@ -1,0 +1,1006 @@
+{
+  "version": "v2-2026-10-30",
+  "status": "확정(사용자 승인) – 앱 반영",
+  "info_exchange_ids": [
+    "s09",
+    "s10",
+    "s14",
+    "s51",
+    "s52",
+    "s53",
+    "s54",
+    "s55",
+    "s56"
+  ],
+  "answer_score": {
+    "5": 100,
+    "4": 75,
+    "3": 50,
+    "2": 25,
+    "1": 0
+  },
+  "na": {
+    "value": "na",
+    "rule": "분자·분모에서 모두 제외(해당 없음 문항은 가중치 0)"
+  },
+  "risk_multiplier": {
+    "H": 3,
+    "M": 2,
+    "L": 1
+  },
+  "formula": {
+    "question": "answer_score(0~100)",
+    "category": "Σ(문항가중치×문항점수)/Σ(해당 문항가중치)",
+    "total": "Σ(분야가중치×분야점수)/Σ(해당 분야가중치) → 100점 환산(해당 문항이 없는 분야는 분모에서 제외)",
+    "rounding": "소수 첫째자리 반올림"
+  },
+  "categories": {
+    "인식": {
+      "weight": 7,
+      "basis": "CP 인식·교육(시행령 제90조의2 ①2호 다·라목) – 직접 제재 없음",
+      "source": "자체 기준"
+    },
+    "담합": {
+      "weight": 25,
+      "basis": "공정거래법 제40조 부당공동행위(2021.12.30부터 제40조①9호 후단 정보교환 합의 포함): 과징금 관련매출액 20% 이내, 형사처벌(3년 이하 징역·2억 이하 벌금), 고발 대상",
+      "source": "공정거래법"
+    },
+    "입찰": {
+      "weight": 17,
+      "basis": "공정거래법 제40조①9호 입찰담합: 부당공동행위와 동일 최고 제재 + 입찰참가자격 제한",
+      "source": "공정거래법"
+    },
+    "하도급": {
+      "weight": 19,
+      "basis": "하도급법 제3조(서면), 제4·11조(부당결정·감액), 제8조(부당취소), 제10조(부당반품), 제12조의3(기술자료 유용), 제13조(대금): 과징금 하도급대금 2배 이내, 기술유용 등 손해배상 최대 5배",
+      "source": "하도급법"
+    },
+    "계열거래": {
+      "weight": 10,
+      "basis": "공정거래법 제45조①9호 부당지원·제47조 사익편취: 과징금 관련매출 10% 이내, 고발",
+      "source": "공정거래법"
+    },
+    "거래상지위": {
+      "weight": 9,
+      "basis": "공정거래법 제45조①6호 거래상지위남용 등 불공정거래행위: 과징금 관련매출 4% 이내",
+      "source": "공정거래법"
+    },
+    "표시광고": {
+      "weight": 6,
+      "basis": "표시광고법 제3조 부당 표시·광고: 과징금 관련매출 2% 이내, 형사처벌",
+      "source": "표시광고법"
+    },
+    "신고기록": {
+      "weight": 7,
+      "basis": "내부감시체계·증거보존(시행령 제90조의2 ①2호 나목) – 조사방해 시 과태료/형사처벌",
+      "source": "자체 기준"
+    }
+  },
+  "items": [
+    {
+      "infoExchange": false,
+      "hint": "",
+      "id": "s01",
+      "category": "인식",
+      "prompt": "나는 공정거래 자율준수가 우리 회사의 거래 원칙이라는 점을 알고 있다.",
+      "risk": "L",
+      "weight": 1,
+      "violation": "CP 운영 기반",
+      "redflag_on": [
+        "1"
+      ]
+    },
+    {
+      "infoExchange": false,
+      "hint": "",
+      "id": "s02",
+      "category": "인식",
+      "prompt": "나는 공정거래 법규를 어기면 회사와 개인 모두 책임을 질 수 있다는 점을 이해하고 있다.",
+      "risk": "M",
+      "weight": 2,
+      "violation": "CP 운영 기반",
+      "redflag_on": [
+        "1"
+      ]
+    },
+    {
+      "infoExchange": false,
+      "hint": "",
+      "id": "s03",
+      "category": "인식",
+      "prompt": "나는 공정거래 판단이 어려우면 혼자 결정하지 않고 감사팀 또는 CP 담당자에게 묻는다.",
+      "risk": "M",
+      "weight": 2,
+      "violation": "CP 운영 기반",
+      "redflag_on": [
+        "1"
+      ]
+    },
+    {
+      "infoExchange": false,
+      "hint": "",
+      "id": "s04",
+      "category": "인식",
+      "prompt": "나는 CP 행동강령이나 준수정책이 공지되면 확인하고, 내 업무에 어떻게 적용되는지 파악한다.",
+      "risk": "L",
+      "weight": 1,
+      "violation": "CP 운영 기반",
+      "redflag_on": [
+        "1"
+      ]
+    },
+    {
+      "infoExchange": false,
+      "hint": "",
+      "id": "s05",
+      "category": "인식",
+      "prompt": "나는 계열사 임직원에게도 같은 공정거래 기준이 적용된다는 점을 알고 있다.",
+      "risk": "L",
+      "weight": 1,
+      "violation": "CP 운영 기반",
+      "redflag_on": [
+        "1"
+      ]
+    },
+    {
+      "infoExchange": false,
+      "hint": "",
+      "id": "s06",
+      "category": "인식",
+      "prompt": "나는 이번 기간의 공정거래 교육 일정 또는 이수 여부를 확인했다.",
+      "risk": "L",
+      "weight": 1,
+      "violation": "CP 운영 기반",
+      "redflag_on": [
+        "1"
+      ]
+    },
+    {
+      "infoExchange": false,
+      "hint": "",
+      "id": "s07",
+      "category": "담합",
+      "prompt": "나는 경쟁사 임직원과 가격, 납기, 물량, 시장 분할을 의논하지 않는다.",
+      "risk": "H",
+      "weight": 3,
+      "violation": "가격·물량·시장분할 담합",
+      "redflag_on": [
+        "1",
+        "2"
+      ]
+    },
+    {
+      "infoExchange": false,
+      "hint": "",
+      "id": "s08",
+      "category": "담합",
+      "prompt": "나는 경쟁사와 입찰 참여 여부나 투찰 가격을 사전에 맞추지 않는다.",
+      "risk": "H",
+      "weight": 3,
+      "violation": "입찰담합",
+      "redflag_on": [
+        "1",
+        "2"
+      ]
+    },
+    {
+      "infoExchange": true,
+      "hint": "",
+      "id": "s09",
+      "category": "담합",
+      "prompt": "나는 업계 모임, 전시회, 메신저에서 접한 경쟁 민감 정보를 영업 판단에 쓰지 않는다.",
+      "risk": "H",
+      "weight": 3,
+      "violation": "정보교환 담합(민감정보 활용)",
+      "redflag_on": [
+        "1",
+        "2"
+      ]
+    },
+    {
+      "infoExchange": true,
+      "hint": "",
+      "id": "s10",
+      "category": "담합",
+      "prompt": "나는 경쟁사로부터 받은 가격표, 견적, 수주 정보를 퍼뜨리지 않고 담당자에게 알린다.",
+      "risk": "H",
+      "weight": 3,
+      "violation": "정보교환 담합(수신정보 유포)",
+      "redflag_on": [
+        "1",
+        "2"
+      ]
+    },
+    {
+      "infoExchange": false,
+      "hint": "",
+      "id": "s11",
+      "category": "담합",
+      "prompt": "나는 대리점, 협력사, 계열사를 통해 경쟁사와 가격이나 거래를 조율하지 않는다.",
+      "risk": "H",
+      "weight": 3,
+      "violation": "허브앤스포크 담합",
+      "redflag_on": [
+        "1",
+        "2"
+      ]
+    },
+    {
+      "infoExchange": false,
+      "hint": "",
+      "id": "s12",
+      "category": "담합",
+      "prompt": "나는 관행이라는 이유로 경쟁사와 보조를 맞추자는 제안을 거절한다.",
+      "risk": "H",
+      "weight": 3,
+      "violation": "담합 가담",
+      "redflag_on": [
+        "1",
+        "2"
+      ]
+    },
+    {
+      "infoExchange": false,
+      "hint": "",
+      "id": "s13",
+      "category": "담합",
+      "prompt": "나는 담합으로 의심되는 대화가 나오면 자리를 정리하고 그 사실을 기록으로 남긴다.",
+      "risk": "M",
+      "weight": 2,
+      "violation": "CP 운영 기반",
+      "redflag_on": [
+        "1"
+      ]
+    },
+    {
+      "infoExchange": true,
+      "hint": "",
+      "id": "s14",
+      "category": "담합",
+      "prompt": "나는 경쟁사에 있는 지인과 가격, 입찰, 고객 정보를 사적으로 주고받지 않는다.",
+      "risk": "H",
+      "weight": 3,
+      "violation": "정보교환 담합(제40조①9호 정보교환)",
+      "redflag_on": [
+        "1",
+        "2"
+      ]
+    },
+    {
+      "infoExchange": false,
+      "hint": "",
+      "id": "s15",
+      "category": "입찰",
+      "prompt": "나는 공공기관, 금융기관, 교통기관 입찰에서 예정가격이나 다른 회사의 투찰 정보를 알아내려 하지 않는다.",
+      "risk": "H",
+      "weight": 3,
+      "violation": "입찰담합·입찰방해",
+      "redflag_on": [
+        "1",
+        "2"
+      ]
+    },
+    {
+      "infoExchange": false,
+      "hint": "",
+      "id": "s16",
+      "category": "입찰",
+      "prompt": "나는 낙찰을 나누거나 들러리로 참여해 달라는 요청을 하지도, 받아들이지도 않는다.",
+      "risk": "H",
+      "weight": 3,
+      "violation": "들러리·낙찰분배",
+      "redflag_on": [
+        "1",
+        "2"
+      ]
+    },
+    {
+      "infoExchange": false,
+      "hint": "",
+      "id": "s17",
+      "category": "입찰",
+      "prompt": "나는 입찰 서류의 실적, 인증, 가격, 사양을 확인된 사실대로 작성한다.",
+      "risk": "M",
+      "weight": 2,
+      "violation": "CP 운영 기반",
+      "redflag_on": [
+        "1"
+      ]
+    },
+    {
+      "infoExchange": false,
+      "hint": "",
+      "id": "s18",
+      "category": "입찰",
+      "prompt": "나는 발주처 담당자에게 평가에 영향을 줄 수 있는 금품, 향응, 편의를 제공하지 않는다.",
+      "risk": "M",
+      "weight": 2,
+      "violation": "CP 운영 기반",
+      "redflag_on": [
+        "1"
+      ]
+    },
+    {
+      "infoExchange": false,
+      "hint": "",
+      "id": "s19",
+      "category": "입찰",
+      "prompt": "나는 입찰 관련 회의와 견적 결정 과정을 나중에 설명할 수 있도록 남긴다.",
+      "risk": "L",
+      "weight": 1,
+      "violation": "CP 운영 기반",
+      "redflag_on": [
+        "1"
+      ]
+    },
+    {
+      "infoExchange": false,
+      "hint": "",
+      "id": "s20",
+      "category": "입찰",
+      "prompt": "나는 수의계약과 단가계약에서도 경쟁 입찰과 같은 공정거래 기준을 적용한다.",
+      "risk": "M",
+      "weight": 2,
+      "violation": "CP 운영 기반",
+      "redflag_on": [
+        "1"
+      ]
+    },
+    {
+      "infoExchange": false,
+      "hint": "",
+      "id": "s21",
+      "category": "하도급",
+      "prompt": "나는 수급사업자에게 정당한 사유 없이 대금 지급을 미루거나 지급 수단을 불리하게 바꾸지 않는다.",
+      "risk": "H",
+      "weight": 3,
+      "violation": "하도급대금 미지급·지연(제13조)",
+      "redflag_on": [
+        "1",
+        "2"
+      ]
+    },
+    {
+      "infoExchange": false,
+      "hint": "",
+      "id": "s22",
+      "category": "하도급",
+      "prompt": "나는 계약 이후 납품대금을 부당하게 감액하지 않는다.",
+      "risk": "H",
+      "weight": 3,
+      "violation": "부당감액(제11조)",
+      "redflag_on": [
+        "1",
+        "2"
+      ]
+    },
+    {
+      "infoExchange": false,
+      "hint": "",
+      "id": "s23",
+      "category": "하도급",
+      "prompt": "나는 정당한 사유 없이 발주를 취소하거나 물량을 갑자기 줄이지 않는다.",
+      "risk": "M",
+      "weight": 2,
+      "violation": "부당 위탁취소(제8조)",
+      "redflag_on": [
+        "1"
+      ]
+    },
+    {
+      "infoExchange": false,
+      "hint": "",
+      "id": "s24",
+      "category": "하도급",
+      "prompt": "나는 기술자료를 받을 때 목적과 비밀유지 범위를 밝히고, 요구 근거 없이 받지 않는다.",
+      "risk": "H",
+      "weight": 3,
+      "violation": "기술자료 부당요구(제12조의3)",
+      "redflag_on": [
+        "1",
+        "2"
+      ]
+    },
+    {
+      "infoExchange": false,
+      "hint": "",
+      "id": "s25",
+      "category": "하도급",
+      "prompt": "나는 협력사의 도면, 소스, 노하우를 합의된 범위 밖에서 사용하지 않는다.",
+      "risk": "H",
+      "weight": 3,
+      "violation": "기술자료 유용(제12조의3)",
+      "redflag_on": [
+        "1",
+        "2"
+      ]
+    },
+    {
+      "infoExchange": false,
+      "hint": "",
+      "id": "s26",
+      "category": "하도급",
+      "prompt": "나는 협력사에게 우리 회사나 계열사 상품의 구입을 강요하지 않는다.",
+      "risk": "M",
+      "weight": 2,
+      "violation": "물품구매강제(제5조)",
+      "redflag_on": [
+        "1"
+      ]
+    },
+    {
+      "infoExchange": false,
+      "hint": "",
+      "id": "s27",
+      "category": "하도급",
+      "prompt": "나는 부당한 위탁 취소, 반품, 검사 지연으로 협력사에 비용을 떠넘기지 않는다.",
+      "risk": "M",
+      "weight": 2,
+      "violation": "부당반품·수령거부(제10조)",
+      "redflag_on": [
+        "1"
+      ]
+    },
+    {
+      "infoExchange": false,
+      "hint": "",
+      "id": "s28",
+      "category": "하도급",
+      "prompt": "나는 하도급 계약서를 작업 시작 전에 교부하는 절차를 지킨다.",
+      "risk": "H",
+      "weight": 3,
+      "violation": "서면 미교부(제3조)",
+      "redflag_on": [
+        "1",
+        "2"
+      ]
+    },
+    {
+      "infoExchange": false,
+      "hint": "",
+      "id": "s29",
+      "category": "계열거래",
+      "prompt": "나는 계열사 거래의 가격과 조건을 비계열 거래와 비교할 수 있게 남긴다.",
+      "risk": "M",
+      "weight": 2,
+      "violation": "부당지원 입증자료",
+      "redflag_on": [
+        "1"
+      ]
+    },
+    {
+      "infoExchange": false,
+      "hint": "",
+      "id": "s30",
+      "category": "계열거래",
+      "prompt": "나는 계열사에만 유리하도록 일감을 몰아주거나 손실을 넘기는 조건을 제안하지 않는다.",
+      "risk": "H",
+      "weight": 3,
+      "violation": "부당지원·일감몰아주기",
+      "redflag_on": [
+        "1",
+        "2"
+      ]
+    },
+    {
+      "infoExchange": false,
+      "hint": "",
+      "id": "s31",
+      "category": "계열거래",
+      "prompt": "나는 계열사 제품이나 용역을 살 때 필요성, 가격, 품질을 검토한다.",
+      "risk": "L",
+      "weight": 1,
+      "violation": "CP 운영 기반",
+      "redflag_on": [
+        "1"
+      ]
+    },
+    {
+      "infoExchange": false,
+      "hint": "",
+      "id": "s32",
+      "category": "계열거래",
+      "prompt": "나는 그룹 내부 거래라는 이유로 계약, 검수, 대금 절차를 생략하지 않는다.",
+      "risk": "M",
+      "weight": 2,
+      "violation": "부당지원 절차",
+      "redflag_on": [
+        "1"
+      ]
+    },
+    {
+      "infoExchange": false,
+      "hint": "",
+      "id": "s33",
+      "category": "계열거래",
+      "prompt": "나는 계열사 임직원과 입찰 정보 공유나 담합으로 이어질 수 있는 대화를 하지 않는다.",
+      "risk": "H",
+      "weight": 3,
+      "violation": "계열사 간 담합",
+      "redflag_on": [
+        "1",
+        "2"
+      ]
+    },
+    {
+      "infoExchange": false,
+      "hint": "",
+      "id": "s34",
+      "category": "거래상지위",
+      "prompt": "나는 유통, 유지보수, 대리점 거래에서 상대의 지위를 이용해 일방적인 조건을 요구하지 않는다.",
+      "risk": "M",
+      "weight": 2,
+      "violation": "거래상지위남용",
+      "redflag_on": [
+        "1"
+      ]
+    },
+    {
+      "infoExchange": false,
+      "hint": "",
+      "id": "s35",
+      "category": "거래상지위",
+      "prompt": "나는 판매목표, 판촉비, 재고 부담을 사전에 합의하지 않고 상대에게 떠넘기지 않는다.",
+      "risk": "M",
+      "weight": 2,
+      "violation": "이익제공강요·불이익제공",
+      "redflag_on": [
+        "1"
+      ]
+    },
+    {
+      "infoExchange": false,
+      "hint": "",
+      "id": "s36",
+      "category": "거래상지위",
+      "prompt": "나는 거래 상대에게 특정인 채용이나 경쟁사와의 거래 거절을 부당하게 강요하지 않는다.",
+      "risk": "M",
+      "weight": 2,
+      "violation": "경영간섭·구속조건부거래",
+      "redflag_on": [
+        "1"
+      ]
+    },
+    {
+      "infoExchange": false,
+      "hint": "",
+      "id": "s37",
+      "category": "거래상지위",
+      "prompt": "나는 정당한 사유 없이 거래를 거절하거나 가격과 물량을 차별하지 않는다.",
+      "risk": "M",
+      "weight": 2,
+      "violation": "거래거절·차별취급",
+      "redflag_on": [
+        "1"
+      ]
+    },
+    {
+      "infoExchange": false,
+      "hint": "",
+      "id": "s38",
+      "category": "거래상지위",
+      "prompt": "나는 고객이나 발주처에게 리베이트, 과다 접대, 사례비로 거래를 유도하지 않는다.",
+      "risk": "H",
+      "weight": 3,
+      "violation": "부당고객유인",
+      "redflag_on": [
+        "1",
+        "2"
+      ]
+    },
+    {
+      "infoExchange": false,
+      "hint": "",
+      "id": "s39",
+      "category": "거래상지위",
+      "prompt": "나는 유지보수, 부품, 소모품 거래에 묶음 강요나 부당한 구속 조건을 넣지 않는다.",
+      "risk": "M",
+      "weight": 2,
+      "violation": "끼워팔기·구속조건부거래",
+      "redflag_on": [
+        "1"
+      ]
+    },
+    {
+      "infoExchange": false,
+      "hint": "",
+      "id": "s40",
+      "category": "거래상지위",
+      "prompt": "나는 거래 상대의 불만과 이의제기를 절차 없이 묵살하지 않는다.",
+      "risk": "L",
+      "weight": 1,
+      "violation": "CP 운영 기반",
+      "redflag_on": [
+        "1"
+      ]
+    },
+    {
+      "infoExchange": false,
+      "hint": "",
+      "id": "s41",
+      "category": "표시광고",
+      "prompt": "나는 제품 성능, 인증, 점유율, 납기, 호환성을 확인되지 않은 표현으로 알리지 않는다.",
+      "risk": "M",
+      "weight": 2,
+      "violation": "허위·과장 표시광고",
+      "redflag_on": [
+        "1"
+      ]
+    },
+    {
+      "infoExchange": false,
+      "hint": "",
+      "id": "s42",
+      "category": "표시광고",
+      "prompt": "나는 제안서, 카탈로그, 홈페이지의 비교 표현이 사실에 근거하는지 확인한다.",
+      "risk": "L",
+      "weight": 1,
+      "violation": "부당 비교광고",
+      "redflag_on": [
+        "1"
+      ]
+    },
+    {
+      "infoExchange": false,
+      "hint": "",
+      "id": "s43",
+      "category": "표시광고",
+      "prompt": "나는 금융자동화, 교통단말기, 유통 솔루션의 사양을 축소하거나 과장하지 않는다.",
+      "risk": "M",
+      "weight": 2,
+      "violation": "기만적 표시광고",
+      "redflag_on": [
+        "1"
+      ]
+    },
+    {
+      "infoExchange": false,
+      "hint": "",
+      "id": "s44",
+      "category": "표시광고",
+      "prompt": "나는 다른 회사의 제안서, 소프트웨어, 도면을 권리 확인 없이 사용하지 않는다.",
+      "risk": "M",
+      "weight": 2,
+      "violation": "권리침해·기만",
+      "redflag_on": [
+        "1"
+      ]
+    },
+    {
+      "infoExchange": false,
+      "hint": "",
+      "id": "s45",
+      "category": "표시광고",
+      "prompt": "나는 허위 실적이나 가공한 시험 결과를 영업 자료에 넣지 않는다.",
+      "risk": "H",
+      "weight": 3,
+      "violation": "허위 표시광고",
+      "redflag_on": [
+        "1",
+        "2"
+      ]
+    },
+    {
+      "infoExchange": false,
+      "hint": "",
+      "id": "s46",
+      "category": "신고기록",
+      "prompt": "나는 공정거래 위반이 의심되면 감사팀 채널로 알릴 수 있다고 알고 있다.",
+      "risk": "L",
+      "weight": 1,
+      "violation": "CP 운영 기반",
+      "redflag_on": [
+        "1"
+      ]
+    },
+    {
+      "infoExchange": false,
+      "hint": "",
+      "id": "s47",
+      "category": "신고기록",
+      "prompt": "나는 내부신고를 했다는 이유로 동료를 따돌리거나 신원을 퍼뜨리지 않는다.",
+      "risk": "M",
+      "weight": 2,
+      "violation": "신고자 보호",
+      "redflag_on": [
+        "1"
+      ]
+    },
+    {
+      "infoExchange": false,
+      "hint": "",
+      "id": "s48",
+      "category": "신고기록",
+      "prompt": "나는 입찰, 견적, 하도급, 계열 거래 관련 메일을 임의로 지우지 않는다.",
+      "risk": "H",
+      "weight": 3,
+      "violation": "증거인멸·조사방해",
+      "redflag_on": [
+        "1",
+        "2"
+      ]
+    },
+    {
+      "infoExchange": false,
+      "hint": "",
+      "id": "s49",
+      "category": "신고기록",
+      "prompt": "나는 메신저로 정한 가격, 물량, 납기를 계약이나 품의에 다시 남긴다.",
+      "risk": "M",
+      "weight": 2,
+      "violation": "합의 기록화",
+      "redflag_on": [
+        "1"
+      ]
+    },
+    {
+      "infoExchange": false,
+      "hint": "",
+      "id": "s50",
+      "category": "신고기록",
+      "prompt": "나는 위반 가능성이 있는 업무를 보면 자가진단과 별도로 감사팀에 사실관계를 알린다.",
+      "risk": "M",
+      "weight": 2,
+      "violation": "CP 운영 기반",
+      "redflag_on": [
+        "1"
+      ]
+    },
+    {
+      "infoExchange": true,
+      "hint": "2021년 개정 공정거래법은 경쟁사와 가격·원가 같은 '경쟁상 민감한 정보'를 주고받기로 하는 것 자체를 담합으로 봅니다. 예) 경쟁사 지인이 \"다음 달 단가 얼마로 가세요?\" 물으면 답하지 않고 대화를 끝냅니다.",
+      "id": "s51",
+      "category": "담합",
+      "prompt": "나는 경쟁사와 가격·원가·생산량·재고·판매량·거래조건 정보를 말, 메일, 메신저 어떤 방식으로도 주고받지 않는다.",
+      "risk": "H",
+      "weight": 3,
+      "violation": "정보교환 담합(제40조①9호 후단)",
+      "redflag_on": [
+        "1",
+        "2"
+      ]
+    },
+    {
+      "infoExchange": true,
+      "hint": "고객사·대리점·협회 같은 중간 다리를 거친 간접 교환도 정보교환 담합에 포함됩니다(허브 앤 스포크). 예) 고객사 구매담당에게 \"B사는 얼마 넣었어요?\" 묻거나 \"B사에도 이 가격 알려 주세요\"라고 하지 않습니다. 고객사와 우리 회사 자신의 가격을 협상하는 것은 정상 거래입니다.",
+      "id": "s52",
+      "category": "담합",
+      "prompt": "나는 고객사나 거래처를 통해 경쟁사의 가격·견적을 전해 듣거나, 우리 가격이 경쟁사에 전달되도록 하지 않는다.",
+      "risk": "H",
+      "weight": 3,
+      "violation": "간접 정보교환(허브 앤 스포크)",
+      "redflag_on": [
+        "1",
+        "2"
+      ]
+    },
+    {
+      "infoExchange": true,
+      "hint": "조용히 듣고만 있어도 합의에 참여한 것으로 보일 수 있습니다. 예) \"이런 얘기는 할 수 없습니다\"라고 말하고 나온 뒤, 일시·참석자·내용을 메모해 감사팀에 보냅니다.",
+      "id": "s53",
+      "category": "담합",
+      "prompt": "나는 협회·업계 모임·전시회에서 가격·원가·물량·거래조건 이야기가 나오면 반대 의사를 밝히고 자리를 떠나며, 그 사실을 기록해 감사팀에 알린다.",
+      "risk": "H",
+      "weight": 3,
+      "violation": "사업자단체 매개 정보교환",
+      "redflag_on": [
+        "1",
+        "2"
+      ]
+    },
+    {
+      "infoExchange": true,
+      "hint": "공정위 심사지침은 수신 거부 의사를 밝히거나 신고한 때부터 합의에서 빠진 것으로 볼 수 있다고 합니다. 예) 단톡방에 경쟁사 견적표가 올라오면 열어 보지 말고 거부 의사를 남긴 뒤 감사팀에 알립니다.",
+      "id": "s54",
+      "category": "담합",
+      "prompt": "나는 경쟁사의 가격·물량 같은 민감한 정보를 받게 되면 열람·전달·활용하지 않고, 받지 않겠다고 회신한 뒤 감사팀에 보고한다.",
+      "risk": "H",
+      "weight": 3,
+      "violation": "정보 수신 후 묵시적 합의",
+      "redflag_on": [
+        "1",
+        "2"
+      ]
+    },
+    {
+      "infoExchange": true,
+      "hint": "경쟁사 가격에 '맞추는' 순간 위험해집니다. 예) 견적 산출서에 원가, 마진, 결재자를 남겨 두면 나중에 독자적으로 결정했다는 가장 좋은 증거가 됩니다.",
+      "id": "s55",
+      "category": "담합",
+      "prompt": "나는 견적·입찰 가격을 우리 회사의 원가와 판단으로만 독자적으로 정하고, 그 근거를 품의서나 견적 산출서에 남긴다.",
+      "risk": "H",
+      "weight": 3,
+      "violation": "가격 독자결정 증빙",
+      "redflag_on": [
+        "1",
+        "2"
+      ]
+    },
+    {
+      "infoExchange": true,
+      "hint": "공시·홈페이지 가격표 같은 공개 정보나 과거·집계 자료는 비교적 안전하지만, 미래·개별·비공개 정보는 위험합니다. 예) 경쟁사 영업사원에게 \"내년에 몇 % 올려요?\" 묻지 않습니다.",
+      "id": "s56",
+      "category": "담합",
+      "prompt": "나는 경쟁사의 앞으로의 가격 인상 계획이나 할인율처럼 공개되지 않은 정보를 알아내거나 공유하지 않고, 시장조사는 공개 자료로만 한다.",
+      "risk": "H",
+      "weight": 3,
+      "violation": "미래·비공개 정보교환",
+      "redflag_on": [
+        "1",
+        "2"
+      ]
+    }
+  ],
+  "risk_bands": [
+    {
+      "band": "양호",
+      "min": 90,
+      "ref": "AAA 구간 준용",
+      "action": "유지"
+    },
+    {
+      "band": "안정",
+      "min": 80,
+      "ref": "AA 구간 준용",
+      "action": "취약문항 자율 보완"
+    },
+    {
+      "band": "관심",
+      "min": 70,
+      "ref": "A 구간 준용",
+      "action": "부서 교육 권고"
+    },
+    {
+      "band": "주의",
+      "min": 55,
+      "ref": "구 B 구간 준용",
+      "action": "CP담당자 면담"
+    },
+    {
+      "band": "경고",
+      "min": 40,
+      "ref": "구 C 구간 준용",
+      "action": "부서 점검·재교육"
+    },
+    {
+      "band": "위험",
+      "min": 0,
+      "ref": "구 D 구간 준용",
+      "action": "감사팀 즉시 점검"
+    }
+  ],
+  "red_flags": [
+    {
+      "id": "RF1",
+      "rule": "위험도 '상'(H) 문항에 1(지키지 않는다) 또는 2(잘 지키지 못한다) 응답",
+      "action": "즉시 점검 – 감사팀 알림, 사실관계 확인",
+      "basis": "자체 기준"
+    },
+    {
+      "id": "RF2",
+      "rule": "담합·입찰 분야 문항 중 1개라도 1 응답",
+      "action": "즉시 점검 + 법무 검토(형사·고발 리스크)",
+      "basis": "자체 기준(공정거래법 제40조 제재 수준 반영)"
+    },
+    {
+      "id": "RF3",
+      "rule": "위험도 '중'(M) 문항 1 응답 또는 동일 분야 2 이하 응답 2개 이상",
+      "action": "주의 – CP담당자 면담",
+      "basis": "자체 기준"
+    },
+    {
+      "id": "RF4",
+      "rule": "분야 점수 55점 미만(해당 문항 2개 이상일 때)",
+      "action": "분야 경고 – 부서 재교육",
+      "basis": "자체 기준(구 B등급 하한 준용)"
+    },
+    {
+      "id": "RF5",
+      "rule": "s48(증거 삭제) 4 이하 응답",
+      "action": "주의 – 기록보존 지침 재안내(조사방해 리스크)",
+      "basis": "자체 기준"
+    },
+    {
+      "id": "RF6",
+      "rule": "척도 문항 중 '해당 업무 없음' 60% 초과",
+      "action": "응답 신뢰성 확인(직무 대비 검토)",
+      "basis": "자체 기준"
+    },
+    {
+      "id": "RF8",
+      "rule": "정보교환 담합 문항(s09·s10·s14·s51~s56) 중 하나라도 2(잘 지키지 못한다) 이하 응답",
+      "action": "즉시 점검 + 법무검토 + 정보교환 담합 교육 안내",
+      "basis": "자체 기준(공정거래법 제40조①9호 후단, 정보교환 심사지침 반영)"
+    },
+    {
+      "id": "RF7",
+      "rule": "레드플래그는 총점과 무관하게 우선 적용(총점이 높아도 RF1/RF2/RF8 발생 시 '위험'으로 표시)",
+      "action": "표시 규칙",
+      "basis": "자체 기준"
+    }
+  ],
+  "official_cp_grades": {
+    "current": [
+      {
+        "grade": "AAA",
+        "label": "최우수",
+        "min": 90,
+        "max": 100
+      },
+      {
+        "grade": "AA",
+        "label": "우수",
+        "min": 80,
+        "max": 90
+      },
+      {
+        "grade": "A",
+        "label": "비교적 우수",
+        "min": 70,
+        "max": 80
+      }
+    ],
+    "note": "2025.4.23 개정(공정위 고시 제2025-3호)으로 3등급 CP 우수기업 지정제. 법위반(과징금·과태료·고발) 시 5점 감점(최초 신청 제외). A등급 인센티브는 2026년까지 유지",
+    "pre_2025_bands": [
+      {
+        "grade": "B",
+        "label": "보통",
+        "min": 55,
+        "max": 70
+      },
+      {
+        "grade": "C",
+        "label": "미흡",
+        "min": 40,
+        "max": 55
+      },
+      {
+        "grade": "D",
+        "label": "매우 미흡",
+        "min": 0,
+        "max": 40
+      }
+    ],
+    "sources": [
+      "https://www.law.go.kr/LSW/admRulInfoP.do?admRulSeq=2100000258072&chrClsCd=010201",
+      "https://korea.kr/briefing/pressReleaseView.do?newsId=156685698",
+      "https://www.jipyong.com/newsletter/Antitrust_Competition/35_202504_alert/download_250423.pdf"
+    ]
+  },
+  "chatbot_fix": {
+    "file": "src/lib/chatbot.ts GRADES",
+    "proposed": [
+      {
+        "grade": "AAA",
+        "text": "최우수 (90점 이상 100점 미만)"
+      },
+      {
+        "grade": "AA",
+        "text": "우수 (80점 이상 90점 미만) – 2030년 목표"
+      },
+      {
+        "grade": "A",
+        "text": "비교적 우수 (70점 이상 80점 미만) – 2028년 최초 평가 목표"
+      },
+      {
+        "grade": "미지정",
+        "text": "70점 미만 – CP 우수기업 미지정(2025.4. 개정으로 B·C·D 폐지)"
+      }
+    ],
+    "note": "법위반 시 5점 감점 안내 추가"
+  },
+  "sources": {
+    "law": "https://www.law.go.kr/LSW/admRulInfoP.do?admRulSeq=2100000258072&chrClsCd=010201",
+    "press": "https://korea.kr/briefing/pressReleaseView.do?newsId=156685698",
+    "jipyong": "https://www.jipyong.com/newsletter/Antitrust_Competition/35_202504_alert/download_250423.pdf",
+    "kofair": "https://www.kofair.or.kr/home/board/brdList.do?menu_cd=000063",
+    "decree": "https://govbrief.kr/scan/003440/90%EC%9D%982/",
+    "ftca": "https://www.law.go.kr/법령/독점규제및공정거래에관한법률",
+    "sub": "https://www.law.go.kr/법령/하도급거래공정화에관한법률",
+    "infoex": "https://infosnake.net/services/law_search/detail.php?id=2100000207275&kind=admrul",
+    "infoex_press": "https://biz.heraldcorp.com/article/2746166",
+    "ftc_cartel": "https://www.ftc.go.kr/www/contents.do?key=693",
+    "infoex_lawmaking": "https://opinion.lawmaking.go.kr/gcom/admpp/36657?announceType=TYPE6&cptOfiOrgCd=6500000&mappingAdmRulSeq=2000000288058&pageIndex=7",
+    "ad": "https://www.law.go.kr/법령/표시ㆍ광고의공정화에관한법률"
+  }
+}
