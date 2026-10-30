@@ -14,7 +14,9 @@ export function CpChatbot({ name }: { name: string }) {
     { role: "assistant", content: `안녕하세요 ${name}님, CP 도우미예요. 자가진단 질문이나 과제 진척·등급에 대해 물어보세요.` },
   ]);
   const end = useRef<HTMLDivElement>(null);
-  useEffect(() => end.current?.scrollIntoView({ behavior: "smooth" }), [messages, open]);
+  useEffect(() => {
+    end.current?.scrollIntoView({ behavior: "smooth", block: "end" });
+  }, [messages, open]);
 
   async function ask(text: string) {
     const q = text.trim();
