@@ -198,6 +198,10 @@ function gradeAnswer(ctx: BotContext, text: string) {
 
 export function ruleAnswer(ctx: BotContext, raw: string): string {
   const text = raw.toLowerCase();
+  if (/정보\s?교환|허브|민감한? 정보|고객사를 통해|거래처를 통해/.test(text)) {
+    const info = FAQ.find((f) => f.keys.includes("정보교환"));
+    if (info) return info.answer(ctx);
+  }
   if (/등급|grade|aa|획득/.test(text)) return gradeAnswer(ctx, raw);
   if (/시급|긴급|급한|진척|진행률|진도|위험|늦|signal|시그널|우선/.test(text))
     return `지금 진척 신호예요.\n${signalSummary(ctx)}\n\n🔴 긴급 과제부터 담당 부서와 일정을 잡으세요. 마감은 모두 ${DEADLINE_LABEL}(2027년 실적 연도 말)이에요.`;
